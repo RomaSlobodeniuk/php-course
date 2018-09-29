@@ -3,14 +3,13 @@
 require_once 'functions.php';
 
 $assertion = 'Земля плоска';
-echo 'IF-ELSEIF-ELSE:';
-echo '<br>';
+debug('IF-ELSEIF-ELSE:');
 if ($assertion === 'Земля кругла') {
-    echo 'правда' . "<br>"; // виконується ця частина коду
+    debug('правда'); // виконується ця частина коду
 } elseif ($assertion === 'Земля плоска') {
-    echo 'неправда' . "<br>"; // iнакше виконається цей код
+    debug('неправда'); // iнакше виконається цей код
 } else {
-    echo 'інше...' . "<br>"; // у всіх інших випадках
+    debug('інше...'); // у всіх інших випадках
 }
 
 echo '<hr>';
@@ -37,9 +36,8 @@ switch ($a) {
         $b = $a;
 }
 
-echo 'SWITCH-CASE:';
-echo '<br>';
-echo "a=$a, b=$b" . "<br>";
+debug('SWITCH-CASE:');
+debug("a = $a, b = $b");
 
 echo '<hr>';
 
@@ -60,32 +58,27 @@ $array = [
         'Khmelnytskyi'
     ]
 ];
-echo 'FOR-FOR:';
-echo '<br>';
+debug('FOR-FOR:');
 for ($i = 0; $i < count($array); $i++) {
     debug($array[$i]);
     for ($y = 0; $y < count($array[$i]); $y++) {
         debug($array[$i][$y]);
     }
-
-    echo "<br>";
 }
 
 echo '<hr>';
 
 $var = 5;
-echo 'WHILE:';
-echo '<br>';
+debug('WHILE:');
 while ($var !== 0) {
-    echo 'var = ' . $var . "<br>";
+    debug("var = $var");
     $var--;
 }
 
 echo '<hr>';
 
 $var = 100;
-echo 'DO-WHILE:';
-echo '<br>';
+debug('DO-WHILE:');
 do {
     $var += $var;
     debug($var);
@@ -98,87 +91,74 @@ $fruits = [
     'key_2' => 'банан',
     'key_3' => 'виноград'
 ];
-echo 'FOREACH:';
-echo '<br>';
+debug('FOREACH:');
 foreach ($fruits as $key => $value) {
-    echo "елемент $key - $value" . "<br>";
+    debug("елемент $key - $value");
 }
 
 echo '<hr>';
 
 $time = 10;
-echo 'BREAK:';
-echo '<br>';
+debug('BREAK:');
 while ($time > 1) {
     $time = $time - 1;
     if ($time == 5) {
         break;
     }
 
-    echo $time . "<br>";
+    debug($time);
 }
 
 echo '<hr>';
 
-echo 'CONTINUE:';
-echo '<br>';
+debug('CONTINUE:');
 for ($i = 0; $i < 5; ++$i) {
     if ($i == 2) {
         continue;
     }
 
-    print "$i<br>";
+    debug($i);
 }
 
 echo "<hr>";
 
 $b = 999;
-echo 'FUNCTION:';
-echo '<br>';
+debug('FUNCTION:');
 function myCustomFunction($parameter) {
     $parameter = $parameter - 1;
     return $parameter;
 }
 
-echo '$b = ' . $b;
-echo "<hr>";
+debug("b = $b");
 $result = myCustomFunction($b);
-echo '$result = ' . $result;
-echo "<br>";
-echo '$b = ' . $b;
-echo "<br>";
+debug("result = $result") ;
+debug("b = $b") ;
 
 echo "<hr>";
 
 $a = 0;
-echo 'ALTERNATIVE-IF-ELSEIF-ELSE:';
-echo '<br>';
+debug('ALTERNATIVE-IF-ELSEIF-ELSE:');
 if ($a == 5):
-    echo "a рівне 5";
-    echo "...";
-    echo "<br>";
+    debug("a рівне 5");
+    debug("...");
 elseif ($a == 6):
-    echo "a рівне 6";
-    echo "!!!";
-    echo "<br>";
+    debug("a рівне 6");
+    debug("!!!");
 else:
-    echo "a не рівне ні 5 ні 6";
-    echo "<br>";
+    debug("a не рівне ні 5 ні 6");
 endif;
 
 echo "<hr>";
 
 $arr = ['item'];
-echo 'ALTERNATIVE-FOREACH:';
-echo '<br>';
+debug('ALTERNATIVE-FOREACH:');
 foreach ($arr as $key => $value):
-    echo $value;
+    debug($value);
 endforeach;
 
 echo "<hr>";
 
-echo 'ALTERNATIVE-FOREACH:';
-echo '<br>';
+debug('ALTERNATIVE-FOREACH:');
 $a = 1;
 while ($a != 5):
     debug($a);
