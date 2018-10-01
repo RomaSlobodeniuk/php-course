@@ -1,6 +1,6 @@
 <?php
 
-require_once '../3_lesson_operators/functions.php';
+require_once '../helpers/functions.php';
 
 /**
  * Створіть масив з довільних чисел. Знайдіть найменше і найбільше значення. Виведіть їх.

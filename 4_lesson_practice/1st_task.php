@@ -1,6 +1,6 @@
 <?php
 
-require_once '../3_lesson_operators/functions.php';
+require_once '../helpers/functions.php';
 
 /**
  * Напишіть програму, яка виводить всі числа від 1 до 100, з двома винятками. Для чисел, які діляться на 3 без остачі,

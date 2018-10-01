@@ -1,6 +1,6 @@
 <?php
 
-require_once '../3_lesson_operators/functions.php';
+require_once '../helpers/functions.php';
 
 /**
  * Напишіть програму, яка створює рядок, що містить решітку 8х8, в якій строки поділяються

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Альтернативний синтаксис</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <h3>php echo $a = <?php echo $a = 5; ?></h3>
 <hr>

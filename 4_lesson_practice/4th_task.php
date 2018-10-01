@@ -1,6 +1,6 @@
 <?php
 
-require_once '../3_lesson_operators/functions.php';
+require_once '../helpers/functions.php';
 
 /**
  * У користувача онлайн сервісу є 2000 у.о., проімітуйте здійснення покупок, використовуючи рандомні значення rand(),
