@@ -13,8 +13,8 @@ $balance = 2000;
 while ($balance >= 0) {
     $balanceBefore = $balance;
     $sumToSpend = rand(1, 500);
-    $balance -= $sumToSpend;
-    if ($balance >= 0) {
+    if ($balanceBefore  >= $sumToSpend) {
+        $balance -= $sumToSpend;
         debug('Баланс перед покупкою: $' . $balanceBefore);
         debug('Ви витратили: $' . ($balanceBefore - $balance));
         debug('Ваш поточний баланс: $' . $balance);
@@ -23,6 +23,7 @@ while ($balance >= 0) {
         debug('На Вашому рахунку недостатньо коштів!');
         debug('Сума покупки: $' . $sumToSpend);
         debug('Ваш поточний баланс: $' . $balanceBefore);
+        break;
     }
 }
 
