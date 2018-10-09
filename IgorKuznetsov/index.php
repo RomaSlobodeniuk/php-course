@@ -6,6 +6,6 @@
  * Time: 19:42
  */
 
-echo 'first commit';
+echo 'first commit from Igor';
 
 ?>
