@@ -1,17 +1,21 @@
-// Работа со строками
-
 <pre>
 <?php
+// Работа со строками
 
-$file = "data111.txt";
 
-$strFromFile = file_get_contents("./data111.txt");
+$file = "./data111.txt";
+
+$strFromFile = file_get_contents($file);
 
 echo $strFromFile;
 
 $pises = explode("\n", $strFromFile);
 
 //$i = 0;
+
+echo "<br><hr>";
+
+var_dump($pises);
 
 echo "<br><hr>";
 
@@ -33,8 +37,7 @@ echo "<hr>";
 
 foreach ($pises as $user) echo "$user <br>";
 
-
-
+echo "<hr>";
 
 
 
