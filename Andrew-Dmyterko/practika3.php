@@ -1,44 +1,9 @@
 <pre>
 <?php
 
-//$arrNum = [1,4,-7777,6,7,4,9,444444,0,34,56,78,2345,67,-3,567,-4345];
-//
-////var_dump($arr);
-//
-//$max = $min = $arrNum[0];
-//
-//
-//for($i=0; $i < count($arrNum); $i++) {
-//
-//    if ($arrNum[$i] > $max) $max = $arrNum[$i];
-//    if ($arrNum[$i] < $min) $min = $arrNum[$i];
-//
-//
-//
-//}
-//
-//echo '$max= ', $max, "  ", '$max= ', $min;
-//die();
 
-//echo "<br><hr><br>";
-//
-//$arrNumPovtor = [1,4,-7777,6,7,4,9,444444,0,34,56,78,2345,67,-3,567,-4345,1,4,-7777,6,7,4,9,444444,0,34,56,
-//                 78,2345,15,24,24,3,8,89,3,89,78,2345,-4345,1,4,-7777,6,7,4,9,444,777,6,7,4,9,444];
-//
-//
-//for ($x=0; $x < count($arrNumPovtor);$x++ ) {
-//    $povtor = 0; $chislo = 0;
-//    for ($y=0; $y < count($arrNumPovtor); $y++) {
-//
-//        if ($arrNumPovtor[$x] === $arrNumPovtor[$y]) $povtor++;
-//
-//    }
-//
-//   echo $povtor !== 1 ? $arrNumPovtor[$x]." - ".$povtor."<br>" : "";
-//
-//
-//}
-//echo "<br><hr><br>";
+
+
 
 
 $arrNumRund =[];
