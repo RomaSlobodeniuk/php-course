@@ -99,7 +99,7 @@ foreach (range($start,$end) as $i)
 }*/
 
 //практичне 2
-$num1 = 5;
+/*$num1 = 5;
 $num2 = 8;
 $char1 = '#';
 $char2 = '&nbsp';
@@ -125,7 +125,7 @@ for($i=1;$i<=$num2;$i++)
             }
 
         }
-    echo "<br>";
+    echo "<br>";*/
 
     /*if ($i%2==0)
     {
@@ -137,7 +137,7 @@ for($i=1;$i<=$num2;$i++)
     }*/
 
 
-}
+
 
 //практичне 3
 /*$numbersArray = array();
@@ -172,6 +172,24 @@ foreach ($months as $indexMonths => $month)
     echo $months[$indexMonths];
     echo "<br>";
 }*/
+
+//лекція 6
+$namesArray = array("Вася","Петя","Катя","Маша");
+//var_dump($namesArray);
+$namesStr = implode('\n', $namesArray);
+
+
+$nameFile = 'lect.txt';
+file_put_contents($nameFile, $namesStr);
+
+$handle = fopen($nameFile,"rb");
+$contents = fread($handle, filesize($nameFile));
+fclose($handle);
+echo $contents;
+
+$contentsArray = explode('\n',$contents);
+print_r($contentsArray);
+
 
 
 //phpinfo();
