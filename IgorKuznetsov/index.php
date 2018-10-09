@@ -6,6 +6,8 @@
  * Time: 19:42
  */
 
-echo 'first commit from Igor';
-
+$file = file_get_contents('./NamesSurnames.txt');
+$namesSurnames = [];
+$namesSurnames = explode("\n", $file);
+print_r($namesSurnames);
 ?>
