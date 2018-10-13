@@ -1,7 +1,8 @@
+<?php
+
+$data = 'file.txt';
+$data2 = file_get_contents("./file.txt");
+echo $data2;
 
 
-* Created by PhpStorm.
- * User: sergiy
- * Date: 06.10.18
- * Time: 16:17
- */
+
