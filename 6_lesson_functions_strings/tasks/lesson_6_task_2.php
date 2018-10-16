@@ -1,25 +1,11 @@
 <?php
 
-/*$str = file_get_contents('./text.txt');
-
-$searchSubStr = ['of', 'in', 'new', 'from', 'this', 'rail', 'splitter'];
-
-function strAllPositions($haystack, $needle) {
-    $offset = 0;
-    $allpos = [];
-    while (($pos = strpos($haystack, $needle, $offset)) !== FALSE) {
-        $offset = $pos + strlen($needle);
-        $allpos[] = $pos;
-    }
-    return $allpos;
-}*/
+require_once '../../helpers/functions.php';
 
 $str = file_get_contents('./text.txt');
+$str = trim($str, " \t\n\r\0\x0B");
 
-$str = trim($str, $character_mask = " \t\n\r\0\x0B");
-
-function multiexplode ($delimiters,$string) {
-
+function multiexplode($delimiters, $string) {
     $ready = str_replace($delimiters, $delimiters[0], $string);
     $launch = explode($delimiters[0], $ready);
     return  $launch;
@@ -27,31 +13,32 @@ function multiexplode ($delimiters,$string) {
 
 $array = multiexplode(array(",", " ", "--", ".", "?", "!", "|", ":", "\"", "\n"), $str);
 
+$_SESSION['array'] = $array;
+$_SESSION['count_values'] = array_count_values($array);
 $newArray = array_map('uniqValues', $array);
+$uniqArray = array_unique($newArray);
 
-
-function uniqValues($arr) {
-    $someArray = [];
-    foreach ($arr as $value) {
-        if (!in_array($value, $someArray)) {
-            $someArray[] = $value;
-        }
+function uniqValues($value) {
+    if ($_SESSION['count_values'][$value] === 1) {
+        return $value;
+    } else {
+        $_SESSION['count_values'][$value] -= 1;
+        $value = '';
     }
 
-    return $someArray;
+    return $value;
 }
 
+$newArray = array_filter($newArray);
 
-print_r($newArray);
+debug("count uniqArray: " . count(array_filter($uniqArray)));
+debug(array_filter($uniqArray));
+debug("count newArray: " . count($newArray));
+debug($newArray);
 
-/*$arr = array(2, 5, 5, 3 ,2, 1, 5, 7, 1);
-$uniq_arr = array();
-foreach ($arr AS $item) {
-    if (!in_array($item, $uniq_arr)) {
-        $uniq_arr[] = $item;
-        echo $item . "\n";
-    }
-}*/
+if (array_filter($uniqArray) === $newArray) {
+    debug("YEEEEEEEEEEEEEEEESSSSSSSSSSSSS!");
+}
 
 
 
