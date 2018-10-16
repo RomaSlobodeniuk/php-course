@@ -1,6 +1,14 @@
 <?php
-    echo "Hello World <br />";
+    echo "Hello Lesson_05 <br />";
     echo "<br />";
+
+    $inetPage=file_get_contents("http://127.0.0.1/");
+    file_put_contents("newFile.php",$inetPage);
+    echo "Создано новый файл newFile.php";
+
+
+
+
 /*
     $VarA=0x1A;
     echo $VarA; echo "<br />";
@@ -43,30 +51,60 @@ $a2=$a1;
 $a3=$a2;
 $a4=$a3;
 $a5=$a4;
-unset($a1); echo $a5; echo "<br />";echo "<br />";
+unset($a1); echo $a5; echo "<br />";
+
 //phpinfo();
 
+//#3_HomeWork
+//  task3: cycles for, while, do while
+for ($i=0;$i<=7;$i++) {
+    for ($j=0;$j<$i;$j++) {
+        echo "#";
+    }
+    echo "<br />";
+}
 
-//Lesson#3_HomeWork
-//  task1   / of Lesson#3_HomeWork
-echo "task1   / of Lesson#3_HomeWork","<br />";
+$i=0;
+while ($i<=7){
+    $j=0;
+    while ($j<$i){
+        echo "#";
+        $j++;
+    }
+    echo "<br />";
+    $i++;
+}
+
+$i=1;
+do {
+    $j=0;
+    do {
+        echo "#";
+        $j++;
+    } while ($j<$i);
+    echo "<br />";
+    $i++;
+} while ($i<=7);
+echo "<br />";
+
+//  task1:
 $ara = [
     0 => [
         "Fam" => "Ivanov" ,
         "Name" => "Ivan",
-    ],
+        ],
     1 => [
         "Fam" => "Petrov",
         "Name" => "Petro",
-    ],
+        ],
     2 => [
         "Fam" => "Sidorov" ,
         "Name" => "Sidor",
-    ],
+        ],
     3 => [
         "Fam" => "Nikolayev",
         "Name" => "Nikolay",
-    ],
+        ],
     4 => [
         "Fam" => "Glebov",
         "Name" => "Gleb",
@@ -102,49 +140,13 @@ foreach ($ara as $i => $vvv) {
 }
 echo "<br />";
 
-//  task2   / of Lesson#3_HomeWork
-echo "task2   / of Lesson#3_HomeWork","<br />";
+//  task2:
 for ($i=9; $i>=0; $i--){
     echo $ara[$i]["Fam"], "  ", $ara[$i]["Name"], "<br />";
 }
-echo "<br />";echo "<br />";
 
-//  task3: cycles for, while, do while / of Lesson#3_HomeWork
-echo "task3   / of Lesson#3_HomeWork","<br />";
-//for
-for ($i=0;$i<=7;$i++) {
-    for ($j=0;$j<$i;$j++) {
-        echo "#";
-    }
-    echo "<br />";
-}
-//while
-$i=0;
-while ($i<=7){
-    $j=0;
-    while ($j<$i){
-        echo "#";
-        $j++;
-    }
-    echo "<br />";
-    $i++;
-}
-//do while
-$i=1;
-do {
-    $j=0;
-    do {
-        echo "#";
-        $j++;
-    } while ($j<$i);
-    echo "<br />";
-    $i++;
-} while ($i<=7);
-echo "<br />";
-
-//Lesson#4   conditional statements
-//Task1 of Lesson#4
-echo "task1   / of Lesson#4","<br />";
+//Lesson4   conditional statements
+//Task1
 for ($i=1; $i<=100; $i++){
     $j=$i;
     if (($j%3===0)&&($j%5===0)) {
@@ -160,10 +162,11 @@ for ($i=1; $i<=100; $i++){
         echo $j, "<br />";
     }
 }
-echo "<br />","<br />";
 
-//Task2  of Lesson#4
-echo "task2   / of Lesson#4","<br />";
+echo "<br />";
+echo "<br />";
+
+//Task2
 $x=8; $y=8;
 for ($j=$y; $j>=1; $j--) {
     $g=$j;
@@ -181,8 +184,7 @@ echo "<br />";
 //&nbsp
 echo "<br />";
 
-//Task3 of Lesson#4
-echo "task3   / of Lesson#4","<br />";
+//Task3
 $longArr = 50; //rand(10,50); // создаем длину массива
 echo "Create an array that has a length of ", $longArr ,"<br />";
 for ($i=0;$i<$longArr;$i++) {
@@ -213,10 +215,9 @@ for ($i=0;$i<$longArr;$i++){
         }
     }
 }
-echo "<br />";
 
-//Task4 do_while   of Lesson#4
-echo "task4  (do_while)   / of Lesson#4","<br />";
+
+//Task4 do_while
 $kasa=2000;
 echo "kasa=",$kasa,"$<br />";
 do {
@@ -234,8 +235,7 @@ do {
 } while ($priBable);
 echo "<br />";
 
-//Task4 while   of Lesson#4
-echo "task4  (while)   / of Lesson#4","<br />";
+//Task4 while
 $kasa=2000;
 echo "kasa=",$kasa,"$<br />";
 while ($kasa>0){
@@ -251,20 +251,15 @@ while ($kasa>0){
 };
 echo "<br />";
 
-//Task5   of Lesson#4
-echo "task5   / of Lesson#4","<br />";
+//Task5
 $mns=["Jan","Feb","Mart","Apr","May","June","Jule","Aug","Sep","Okt","Nov","Dec"];
 for ($i=0;$i<=count($mns)-1;$i++) {
     echo $i+1,".  ","$mns[$i]","<br />";
 }
+*/
 echo "<br />";
 
 //Lesson #
-//phpinfo();
-*/
 
-for ($i=0;$i<10;$i++) {
-    echo ($i),"<br />";
-}
 ?>
 
