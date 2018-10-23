@@ -7,31 +7,47 @@
  * и разделенный пробелами запятыми и через возврат каретки
  * в перемешку
  * в результате нужно оставить только цифры и найти Мин Макс и выстроить по возрастанию.
+ *
+ * Коментарии не убраны
+ *
  * Date: 10.10.18
  * Time: 21:03
  */
+
 
 $file = './data.txt';
 
 // прочитали $file в строку
 $strFromFile = file_get_contents("$file");
 
-// Выводим исходную строку
-echo "Выводим исходную строку<br>$strFromFile<br><hr><br>";
+//var_dump($strFromFile);
+//echo "<br>",strlen($strFromFile), "<hr><br>";
 
-// парсим $file через функцию передаем символы для парсинга
-$pars = pars_func($strFromFile, ",", "\n"," ");
+//// парсим $file
+//// заменяем \n на запятые
+//$pars = str_replace("\n", ",", $strFromFile);
+//
+//var_dump($pars);
+//echo "<br>",strlen($pars), "<hr><br>";
+//
+//// заменяем пробелы на запятые
+//$pars = str_replace(" ", ",", $pars);
+//
+//var_dump($pars);
+//echo "<br>",strlen($pars), "<hr><br>";
 
-// Выводим строку после парсинга заменяем \n и пробелы на запятые
-echo 'Выводим строку после парсинга заменяем \n и пробелы на запятые'."<br>$pars<br><hr><br>";
 
-//  Разбивает строку с помощью разделителя в массив
-$arrPars = explode(',', $pars);
+// парсим $file через функцию
+$pars = pars_func($strFromFile,["\n"," "]);
 
-// Разбивает строку с помощью разделителя в массив
-echo "Выводим разбитую строку с помощью разделителя в массив<br>";
-foreach ($arrPars as $i) echo "$i, ";
-echo "<br><hr><br>";
+//var_dump($pars);
+//echo "<br>",strlen($pars), "<hr><br>";
+
+//  Разбивает строку с помощью разделителя
+$arrPars = explode(',',$pars);
+
+//var_dump($arrPars);
+//echo "<br>",count($arrPars), "<hr><br>";
 
 $arrNum = [];
 
@@ -52,13 +68,12 @@ foreach ($arrNum as $arg) {
     if ($arg < $min) $min = $arg;
 }
 
-// Полученный масив чисел
-echo "Полученный масив чисел <br>";
 foreach ($arrNum as $i) echo "$i, ";
 echo "<br><hr><br>";
 
 echo '$max= ', $max,' , $min= ', $min;
 echo "<br><hr><br>";
+
 
 // Сортировка пузырьковым методом
 $count_elements = count($arrNum);
@@ -72,8 +87,7 @@ for ($i=0; $i < $count_elements; $i++) {
     $iterations--;
 }
 
-// Выводим отсортированный массив (пузырьковый метод)
-echo "Выводим отсортированный массив (пузырьковый метод)<br>";
+// Выводим массив
 foreach ($arrNum as $i) echo "$i, ";
 echo "<br><hr><br>";
 
@@ -81,10 +95,10 @@ echo "<br><hr><br>";
 
 // обявляем функции
 // --------------------------------------------------------------------------------
-function pars_func(string $strToPars, $argRep, ...$argPars) {
+function pars_func(string $strToPars, ...$argPars) {
     foreach ($argPars as $i) {
         // в str_replace передаем каждый из элементов массива $argPars
-        $strToPars = str_replace($i, $argRep, $strToPars);
+        $strToPars = str_replace($i, ",", $strToPars);
 
 //        var_dump($strToPars);
 //        echo "<br>",strlen($strToPars), "<hr><br>";
@@ -92,17 +106,24 @@ function pars_func(string $strToPars, $argRep, ...$argPars) {
 
     return $strToPars;
 }
-
 // тожесамое но проще
 function pars_func1(string $strToPars, ...$argPars) {
-                            // можно передать $argPars как масив и
-                            //str_replace() использует каждое значение из
-                            // соответствующего массива для поиска и замены
-    $strToPars = str_replace($argPars, ",", $strToPars);
-                            //^^^^^^^
+                                // можно передать $argPars как масив и
+                                //str_replace() использует каждое значение из
+                                // соответствующего массива для поиска и замены
+        $strToPars = str_replace($argPars, ",", $strToPars);
+                                //^^^^^^^
+//        var_dump($strToPars);
+//        echo "<br>",strlen($strToPars), "<hr><br>";
 
     return $strToPars;
 }
 
+
+
+
+
+
 ?>
+
 </pre>

@@ -21,10 +21,6 @@ $pises = explode("\n", $strFromFile);
 
 echo "<br><hr>";
 
-var_dump($pises);
-
-echo "<br><hr>";
-
 foreach ($pises as $user) echo "$user <br>";
 
 //while ($i < count($pises)){
