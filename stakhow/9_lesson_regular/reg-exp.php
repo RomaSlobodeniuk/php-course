@@ -6,7 +6,7 @@
  */
 
 $greeting = $_GET['email'];
-$pattern = '/^([a-zA-Z0-9\._-]{3,40}[@]{1}[a-zA-Z0-9\._-]{3,10})$/i';
+$pattern = '/^([a-zA-Z0-9\.?_-]{3,40}[@]{1}[a-zA-Z0-9\.?_-]{3,10})$/i';
 preg_match($pattern, $greeting, $matches);
 if(preg_match($pattern, $greeting, $matches)){
 
