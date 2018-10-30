@@ -78,4 +78,6 @@ printArray($arr);*/
 
 summ($arr);*/
 
-echo "1";
+//echo "1";
+
+require_once

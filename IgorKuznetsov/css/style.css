@@ -1,0 +1,31 @@
+.black {
+    color: #000000;
+    font-style: italic;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.img {
+    border: solid #ffffff 5px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px black;
+}
+
+.f {
+    font-size: 200px;
+    font-style: bold;
+}
+
+.w {
+    color: #ffffff;
+    font-size: 150px;
+    font-style: bold;
+    text-shadow: 1px 1px 2px black;
+}
+
+.background {
+    background: url("../img/images.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
