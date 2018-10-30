@@ -1,152 +1,8 @@
 <?php
-    echo "Hello Lesson_05 <br />";
-    echo "<br />";
-
-    $inetPage=file_get_contents("http://127.0.0.1/");
-    file_put_contents("newFile.php",$inetPage);
-    echo "Создано новый файл newFile.php";
-
-
-
-
-/*
-    $VarA=0x1A;
-    echo $VarA; echo "<br />";
-    $a = 1.292;
-    $b = 1.8e10;
-    $c = 4E-9;
-    echo $a; echo "<br />";
-    echo $b; echo "<br />";
-    echo $c; echo "<br />";
-
-$array1[0] = "PHP";
-$array1[1] = "Python";
-$array1[2] = "Java";
-print $array1[1]; echo "<br />";
-print_r ($array1[2]); echo "<br />";
-var_dump($array1); echo "<br />";
-
-$array2["front_1"] = "Html";
-$array2["front_2"] = "Css";
-$array2["front_3"] = "JavaScript";
-print_r ($array2["front_1"]); echo "<br />";
-var_dump($array2); echo "<br />";
-
-$array3 = array("juice_1" => "Apple");
-$array3 = array("juice_2" => "Orange");
-$array3 = array("juice_3" => "Pineapple");
-//print $array3["juice_2"];
+echo "Hello Lesson_04 HomeWork <br />";
 echo "<br />";
-var_dump($array3);
-echo "<br />";
-$array = [
-    array('juice_1' => 'Apple'),
-    array('juice_2' => 'Orange'),
-    array('juice_3' => 'Pineapple')
-];
-var_dump($array);
-
-$a1 = 535;
-$a2=$a1;
-$a3=$a2;
-$a4=$a3;
-$a5=$a4;
-unset($a1); echo $a5; echo "<br />";
-
-//phpinfo();
-
-//#3_HomeWork
-//  task3: cycles for, while, do while
-for ($i=0;$i<=7;$i++) {
-    for ($j=0;$j<$i;$j++) {
-        echo "#";
-    }
-    echo "<br />";
-}
-
-$i=0;
-while ($i<=7){
-    $j=0;
-    while ($j<$i){
-        echo "#";
-        $j++;
-    }
-    echo "<br />";
-    $i++;
-}
-
-$i=1;
-do {
-    $j=0;
-    do {
-        echo "#";
-        $j++;
-    } while ($j<$i);
-    echo "<br />";
-    $i++;
-} while ($i<=7);
-echo "<br />";
-
-//  task1:
-$ara = [
-    0 => [
-        "Fam" => "Ivanov" ,
-        "Name" => "Ivan",
-        ],
-    1 => [
-        "Fam" => "Petrov",
-        "Name" => "Petro",
-        ],
-    2 => [
-        "Fam" => "Sidorov" ,
-        "Name" => "Sidor",
-        ],
-    3 => [
-        "Fam" => "Nikolayev",
-        "Name" => "Nikolay",
-        ],
-    4 => [
-        "Fam" => "Glebov",
-        "Name" => "Gleb",
-    ],
-    5 => [
-        "Fam" => "Sergeev",
-        "Name" => "Sergey",
-    ],
-    6 => [
-        "Fam" => "Olegov",
-        "Name" => "Oleg" ,
-    ],
-    7 => [
-        "Fam" => "Oleva",
-        "Name" => "Olya" ,
-    ],
-    8 => [
-        "Fam" => "Kateva",
-        "Name" => "Katya" ,
-    ],
-    9 => [
-        "Fam" => "Ludova",
-        "Name" => "Luda" ,
-    ],
-];
-foreach ($ara as $i => $vvv) {
-    if  ($i%2===0){
-        echo  $vvv["Name"],"<br />";
-    }
-    else {
-        echo $vvv["Fam"], "<br />";
-    }
-}
-echo "<br />";
-
-//  task2:
-for ($i=9; $i>=0; $i--){
-    echo $ara[$i]["Fam"], "  ", $ara[$i]["Name"], "<br />";
-}
-
 //Lesson4   conditional statements
-//Task1
+echo "Lesson_04 Task1 <br />"; //Task1
 for ($i=1; $i<=100; $i++){
     $j=$i;
     if (($j%3===0)&&($j%5===0)) {
@@ -162,11 +18,10 @@ for ($i=1; $i<=100; $i++){
         echo $j, "<br />";
     }
 }
-
+echo "Final Task1 <br />";
 echo "<br />";
-echo "<br />";
 
-//Task2
+echo "Lesson_04 Task2 <br />"; //Task2
 $x=8; $y=8;
 for ($j=$y; $j>=1; $j--) {
     $g=$j;
@@ -181,10 +36,10 @@ for ($j=$y; $j>=1; $j--) {
     }
 echo "<br />";
 }
-//&nbsp
+echo "Final Task2 <br />";
 echo "<br />";
 
-//Task3
+echo "Lesson_04 Task3 <br />"; //Task3
 $longArr = 50; //rand(10,50); // создаем длину массива
 echo "Create an array that has a length of ", $longArr ,"<br />";
 for ($i=0;$i<$longArr;$i++) {
@@ -215,9 +70,10 @@ for ($i=0;$i<$longArr;$i++){
         }
     }
 }
+echo "Final Task3 <br />";
+echo " <br />";
 
-
-//Task4 do_while
+echo "Lesson_04 Task4a //do_while <br />"; //Task4a
 $kasa=2000;
 echo "kasa=",$kasa,"$<br />";
 do {
@@ -230,12 +86,12 @@ do {
     }
     else {
         echo "Pokupka na sumu:",$buy,"$<br />";
-        echo "Nedostatochno deneg dlya pokupki!!!<br />";
+        echo "У тя нима бабла ЛАШАРА!!! Иди работай!<br />";
     }
 } while ($priBable);
 echo "<br />";
 
-//Task4 while
+echo "Lesson_04 Task4b //while <br />"; //Task4b
 $kasa=2000;
 echo "kasa=",$kasa,"$<br />";
 while ($kasa>0){
@@ -246,20 +102,23 @@ while ($kasa>0){
         echo "zalushok kasu=",$kasa,"$<br />";
     }
     else {
-        echo "Nedostatochno deneg dlya pokupki!!!<br />";
+        echo "У тя нима бабла ЛАШАРА!!! Иди работай!<br />";
     }
-};
+}
+echo "Final Task4 <br />";
 echo "<br />";
 
-//Task5
+echo "Lesson_05 Task5 <br />"; //Task5
 $mns=["Jan","Feb","Mart","Apr","May","June","Jule","Aug","Sep","Okt","Nov","Dec"];
 for ($i=0;$i<=count($mns)-1;$i++) {
     echo $i+1,".  ","$mns[$i]","<br />";
 }
+/*
+    $inetPage=file_get_contents("http://127.0.0.1/");
+    file_put_contents("newFile.php",$inetPage);
+    echo "Создано новый файл newFile.php";
 */
-echo "<br />";
-
-//Lesson #
-
+echo "Final Task5 <br />";
+echo "Final Lesson_04 <br />";
 ?>
 

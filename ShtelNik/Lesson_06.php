@@ -23,12 +23,6 @@ foreach($ara as $val => &$i) {
     echo $val," - ",$i,"<br />";
 }
 echo "Fin Lesson_06 Task2 <br />";
-
-/*
-*/
 echo "<br />";
-
-//Lesson #
-
 ?>
 

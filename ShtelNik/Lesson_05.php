@@ -1,61 +1,9 @@
 <?php
-    echo "Hello Lesson_05 <br />";
+    echo "Hello Lesson_05 HomeWork <br />";
     echo "<br />";
-
-    $inetPage=file_get_contents("http://127.0.0.1/");
-    file_put_contents("newFile.php",$inetPage);
-    echo "Создано новый файл newFile.php";
-
-
-
-
-/*
-    $VarA=0x1A;
-    echo $VarA; echo "<br />";
-    $a = 1.292;
-    $b = 1.8e10;
-    $c = 4E-9;
-    echo $a; echo "<br />";
-    echo $b; echo "<br />";
-    echo $c; echo "<br />";
-
-$array1[0] = "PHP";
-$array1[1] = "Python";
-$array1[2] = "Java";
-print $array1[1]; echo "<br />";
-print_r ($array1[2]); echo "<br />";
-var_dump($array1); echo "<br />";
-
-$array2["front_1"] = "Html";
-$array2["front_2"] = "Css";
-$array2["front_3"] = "JavaScript";
-print_r ($array2["front_1"]); echo "<br />";
-var_dump($array2); echo "<br />";
-
-$array3 = array("juice_1" => "Apple");
-$array3 = array("juice_2" => "Orange");
-$array3 = array("juice_3" => "Pineapple");
-//print $array3["juice_2"];
-echo "<br />";
-var_dump($array3);
-echo "<br />";
-$array = [
-    array('juice_1' => 'Apple'),
-    array('juice_2' => 'Orange'),
-    array('juice_3' => 'Pineapple')
-];
-var_dump($array);
-
-$a1 = 535;
-$a2=$a1;
-$a3=$a2;
-$a4=$a3;
-$a5=$a4;
-unset($a1); echo $a5; echo "<br />";
-
-//phpinfo();
-
 //#3_HomeWork
+echo "Hello Lesson_03 HomeWork <br />";
+echo "<br />";
 //  task3: cycles for, while, do while
 for ($i=0;$i<=7;$i++) {
     for ($j=0;$j<$i;$j++) {
@@ -256,10 +204,12 @@ $mns=["Jan","Feb","Mart","Apr","May","June","Jule","Aug","Sep","Okt","Nov","Dec"
 for ($i=0;$i<=count($mns)-1;$i++) {
     echo $i+1,".  ","$mns[$i]","<br />";
 }
+/*
+    $inetPage=file_get_contents("http://127.0.0.1/");
+    file_put_contents("newFile.php",$inetPage);
+    echo "Создано новый файл newFile.php";
 */
 echo "<br />";
-
-//Lesson #
-
+/
 ?>
 
