@@ -20,3 +20,8 @@ $str = 'The matrix is the our world!!!';
 preg_match('/\s([a-z]{1,5}!+)$/', $str, $matches);
 debug($str);
 debug($matches);
+
+$str = '/* первый комментарий */ не комментарий /* второй комментарий */';
+preg_match_all('/\*\s(.*)\s\*/', $str, $matches);
+debug($str);
+debug($matches);
