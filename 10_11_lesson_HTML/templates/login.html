@@ -1,30 +1,12 @@
 <div>
     <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">Текст статьи: This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <h1 class="display-4">{{greetings}}</h1>
+        <p class="lead">{{description}}</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="http://google.com.ua" role="button" target="_blank">Google</a>
+        <p>{{additional}}</p>
+        <a class="btn btn-primary btn-lg" href="{{link}}" role="button" target="_blank">{{link_name}}</a>
     </div>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Articles</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        </div>
-        <div class="row">
-            <?php if (!empty($pictures)):?>
-                <?php foreach ($pictures as $picture):?>
-                    <div class="card col-sm-4" style="width: 18rem;">
-                        <img class="card-img-top" src="<?php echo $picture['src'] ?>" title="Humor" alt="black-humor">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $picture['name'] ?></h5>
-                            <p class="card-text"><?php echo $picture['text'] ?></p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                <?php endforeach;?>
-            <?php endif;?>
-        </div>
+    <div class="jumbotron">
         <div class="jumbotron">
             <div class="row justify-content-center">
                 <form class="col-sm-6" id="main-form" name="form" method="post" enctype="multipart/form-data" action="">
