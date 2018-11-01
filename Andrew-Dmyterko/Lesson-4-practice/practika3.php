@@ -28,7 +28,7 @@ for($i=0; $i < count($arrNum); $i++) {
 }
 
 echo '$max= ', $max, "  ", '$max= ', $min;
-//die();
+//jukdie();
 
 echo "<br><hr><br>";
 

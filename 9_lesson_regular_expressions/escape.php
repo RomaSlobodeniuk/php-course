@@ -7,7 +7,7 @@ require_once '../helpers/functions.php';
  */
 
 $someString = 'Shoulda Coulda Woulda & 3 TIMES!';
-$pattern = '/(\s[\W]+)/';
+$pattern = '/(\s[\d]+\s)/i';
 preg_match($pattern, $someString, $matches);
 debug([
     'input_string' => $someString,
