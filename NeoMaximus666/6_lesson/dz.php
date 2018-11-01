@@ -58,4 +58,10 @@ myStrArray($content,$strArray);
 //var_dump(myStrArray($content,$strArray));
 
 
+/*
+робота з колбек-функціями
+array_map()
+створити фільтр
+*/
+
 ?>
