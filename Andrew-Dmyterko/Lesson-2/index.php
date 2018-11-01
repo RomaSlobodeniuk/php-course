@@ -72,6 +72,7 @@
     echo "-", $var, "-";
 // ctrl+/
 phpinfo();
+land
 
 
 /*
