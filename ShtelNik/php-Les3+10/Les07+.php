@@ -1,11 +1,11 @@
 <?php
-    echo "Hello Lesson_07+ <br />";
-    echo "<br />";
+    echo "Hello Lesson_07+ <br>";
+    echo "<br>";
 
 // Lesson_07+ Task1
 echo "<br />","Lesson_07+ Task1","<br />";
-//из файла Les_06_HW_Task2_text.txt копируем текст в переменную $zTxt
-$zTxt = file_get_contents("Les_06_HW_Task2_text.txt");
+//из файла text_f.Les06.txt копируем текст в переменную $zTxt
+$zTxt = file_get_contents("text_f.Les06.txt");
 echo $zTxt,"<br />";
 //создаем массив с нужными нам ключами,
 // а для каждого ключа создаем пустой массив, в который после будут внесены номера позиций
@@ -20,7 +20,7 @@ $ara = [
 ];
 $longTxt = strlen ($zTxt);
 echo "<br />", "В этом тексте всего  ", $longTxt," символов <br />";
-echo "<br /> Поривнюемо кожне ключове слово послыдовно по тексту <br />";
+echo "<br /> Поривнюемо кожне ключове слово послiдовно по тексту <br />";
 foreach($ara as $val => $x) { //для каждого ключевого слова делаем:
     $call = substr_count($zTxt,$val); //узнаем количество ключевых слов в тексте
     if ($call > 0) { //если ключевые слова найдены (их количество >0)
@@ -45,7 +45,7 @@ echo "<br />";
 // Lesson_07+ Task2
 echo "<br />","Lesson_07+ Task2","<br />";
 //из файла Les_06_HW_Task2_text.txt копируем текст в переменную $zTxt
-$zTxt = file_get_contents("Les_06_HW_Task2_text.txt");
+$zTxt = file_get_contents("text_f.Les06.txt");
 echo $zTxt,"<br />";
 
 // use rishennja

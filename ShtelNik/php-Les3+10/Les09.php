@@ -1,10 +1,11 @@
 <?php
-    echo "Hello Lesson_09 <br />";
-    echo "<br />";
+    echo "Hello Lesson_09 <br>";
+    echo "<br>";
 
-    echo "Lesson_09 Task_01 <br />";
-    echo "Написать RegEx для валидации E-mail <br />";
+    echo "Lesson_09 Task_01 <br>";
+    echo "Написать RegEx для валидации E-mail <br>";
     echo "Доп.условия: до @ - не более 20 симв., после @ - не более 10 симв., после точки - не более 4 симв.<br /><br />";
+    //сначала накидаем массив е-мэйлов для проверки работы нижеописаного кода
     $txt = [
         "1.Good-Email_is.2@mail.com",
         "_Good.0uoll@yukkl.com",
@@ -22,9 +23,7 @@
         "Bad_Email.EndPoint.@@mail.com",
         "q@i.ua"
     ];
-
-
-
+    //теперь сам код с встроенным RegEx-ом
     foreach ($txt as $str) {
         echo $str, '<br />';
         echo ' Регулярное выражение: <br />';

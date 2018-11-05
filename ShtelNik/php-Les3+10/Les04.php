@@ -1,100 +1,12 @@
 <?php
-    echo "Hello Lesson_05 HomeWork <br />";
-    echo "<br />";
-//#3_HomeWork
-echo "Hello Lesson_03 HomeWork <br />";
-echo "<br />";
-//  task3: cycles for, while, do while
-for ($i=0;$i<=7;$i++) {
-    for ($j=0;$j<$i;$j++) {
-        echo "#";
-    }
-    echo "<br />";
-}
-
-$i=0;
-while ($i<=7){
-    $j=0;
-    while ($j<$i){
-        echo "#";
-        $j++;
-    }
-    echo "<br />";
-    $i++;
-}
-
-$i=1;
-do {
-    $j=0;
-    do {
-        echo "#";
-        $j++;
-    } while ($j<$i);
-    echo "<br />";
-    $i++;
-} while ($i<=7);
-echo "<br />";
-
-//  task1:
-$ara = [
-    0 => [
-        "Fam" => "Ivanov" ,
-        "Name" => "Ivan",
-        ],
-    1 => [
-        "Fam" => "Petrov",
-        "Name" => "Petro",
-        ],
-    2 => [
-        "Fam" => "Sidorov" ,
-        "Name" => "Sidor",
-        ],
-    3 => [
-        "Fam" => "Nikolayev",
-        "Name" => "Nikolay",
-        ],
-    4 => [
-        "Fam" => "Glebov",
-        "Name" => "Gleb",
-    ],
-    5 => [
-        "Fam" => "Sergeev",
-        "Name" => "Sergey",
-    ],
-    6 => [
-        "Fam" => "Olegov",
-        "Name" => "Oleg" ,
-    ],
-    7 => [
-        "Fam" => "Oleva",
-        "Name" => "Olya" ,
-    ],
-    8 => [
-        "Fam" => "Kateva",
-        "Name" => "Katya" ,
-    ],
-    9 => [
-        "Fam" => "Ludova",
-        "Name" => "Luda" ,
-    ],
-];
-foreach ($ara as $i => $vvv) {
-    if  ($i%2===0){
-        echo  $vvv["Name"],"<br />";
-    }
-    else {
-        echo $vvv["Fam"], "<br />";
-    }
-}
-echo "<br />";
-
-//  task2:
-for ($i=9; $i>=0; $i--){
-    echo $ara[$i]["Fam"], "  ", $ara[$i]["Name"], "<br />";
-}
-
+echo "Hello Lesson_04 HomeWork <br>";
+echo "<br>";
 //Lesson4   conditional statements
-//Task1
+echo "Lesson_04 Task1 <br>"; //Task1
+echo "Вывести на экран числа от 1 до 100, <br>";
+echo "если число делится на 3, то вместо него печатаем ALFA, <br>";
+echo "если число делится на 5, то вместо него печатаем BETA, <br>";
+echo "если число делится на 3 и 5, то вместо него печатаем ALFA&BETA. <br>";
 for ($i=1; $i<=100; $i++){
     $j=$i;
     if (($j%3===0)&&($j%5===0)) {
@@ -110,11 +22,10 @@ for ($i=1; $i<=100; $i++){
         echo $j, "<br />";
     }
 }
+echo "#Final Task1# <br />";
+echo "<br>";
 
-echo "<br />";
-echo "<br />";
-
-//Task2
+echo "Lesson_04 Task2 <br />"; //Task2
 $x=8; $y=8;
 for ($j=$y; $j>=1; $j--) {
     $g=$j;
@@ -127,23 +38,25 @@ for ($j=$y; $j>=1; $j--) {
             echo "#";
         }
     }
-echo "<br />";
+echo "<br>";
 }
-//&nbsp
-echo "<br />";
+echo "#Final Task2# <br>";
+echo "<br>";
 
-//Task3
+echo "Lesson_04 Task3 <br>"; //Task3
+echo "Создать массив чисел рандомно, ","<br>";
+echo "найти Мах,Мin значения, ","<br>";
+echo "вывести какие знчения повторяются и сколько раз ","<br>";
 $longArr = 50; //rand(10,50); // создаем длину массива
-echo "Create an array that has a length of ", $longArr ,"<br />";
+echo "Create an array that has a length of ", $longArr ,"<br>";
 for ($i=0;$i<$longArr;$i++) {
     $num[$i] = rand(1,20); // заполняем массив случ.числами от 1 до 20
-    echo $i+1,".  ",$num[$i],"<br />"; //выводим массив чисел на экран
+    echo $i+1,".  ",$num[$i],"<br>"; //выводим массив чисел на экран
 }
 $max = max($num);
-echo "Max value of the array is ", $max ,"<br />";//выводим Max значение массива
+echo "Max value of the array is ", $max ,"<br>";//выводим Max значение массива
 $min = min($num);
-echo "Min value of the array is ", $min ,"<br />";//выводим Min значение массива
-echo "<br />";
+echo "Min value of the array is ", $min ,"<br>";//выводим Min значение массива
 for ($i=0;$i<$longArr;$i++) { //создаем массив "К" в котором будем хранить TRUE если число повторяется
     $K[$i] = false; //по-умолчению считаем что каждое число не повторяется,а появилось лишь 1 раз
 }
@@ -159,13 +72,14 @@ for ($i=0;$i<$longArr;$i++){
         }
         //для чисел которые встретились нам больше 1 раз выводим само число и количество его появлений
         if ($rep>1) {
-            echo $num[$i], "-", $rep, "<br />";
+            echo $num[$i], "-", $rep, "<br>";
         }
     }
 }
+echo "#Final Task3# <br />";
+echo " <br>";
 
-
-//Task4 do_while
+echo "Lesson_04 Task4a //do_while <br />"; //Task4a
 $kasa=2000;
 echo "kasa=",$kasa,"$<br />";
 do {
@@ -178,12 +92,12 @@ do {
     }
     else {
         echo "Pokupka na sumu:",$buy,"$<br />";
-        echo "Nedostatochno deneg dlya pokupki!!!<br />";
+        echo "У тя нима бабла ЛАШАРА!!! Иди работай!<br />";
     }
 } while ($priBable);
 echo "<br />";
 
-//Task4 while
+echo "Lesson_04 Task4b //while <br />"; //Task4b
 $kasa=2000;
 echo "kasa=",$kasa,"$<br />";
 while ($kasa>0){
@@ -191,25 +105,26 @@ while ($kasa>0){
     echo "Pokupka na sumu:",$buy,"$<br />";
     if (($kasa>=$buy)&&($kasa>0)) {
         $kasa=$kasa-$buy;
-        echo "zalushok kasu=",$kasa,"$<br />";
+        echo "zalushok kasu=",$kasa,"$<br>";
     }
     else {
-        echo "Nedostatochno deneg dlya pokupki!!!<br />";
+        echo "У тя нима бабла ЛАШАРА!!! Иди работай!<br />";
     }
-};
-echo "<br />";
+}
+echo "#Final Task4# <br>";
+echo "<br>";
 
-//Task5
+echo "Lesson_05 Task5 <br>"; //Task5
 $mns=["Jan","Feb","Mart","Apr","May","June","Jule","Aug","Sep","Okt","Nov","Dec"];
 for ($i=0;$i<=count($mns)-1;$i++) {
-    echo $i+1,".  ","$mns[$i]","<br />";
+    echo $i+1,".  ","$mns[$i]","<br>";
 }
 /*
     $inetPage=file_get_contents("http://127.0.0.1/");
     file_put_contents("newFile.php",$inetPage);
     echo "Создано новый файл newFile.php";
 */
-echo "<br />";
-/
+echo "#Final Task5# <br>";
+echo "Final Lesson_04 <br>";
 ?>
 
