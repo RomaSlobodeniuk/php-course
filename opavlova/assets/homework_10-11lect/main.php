@@ -6,9 +6,6 @@
         <p>But it's just my subjective opinion. Google it to find more</p>
 
         <a href="https://www.google.com.ua/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Google all!</a>
-        <a href="https://www.visitmalta.com/ru/islands" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">More about Malta</a>
-        <a href="https://www.hellocanaryislands.com/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">More about Tenerife</a>
-        <a href="https://www.caribbeanislands.com/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">More about Caribbeans</a>
 
     </div>
 
@@ -28,7 +25,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $picture['name'] ?></h5>
                             <p class="card-text"><?php echo $picture['text'] ?></p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="<?php echo $picture['link'] ?>" class="btn btn-primary" target="_blank">Find out more</a>
                         </div>
                     </div>
                 <?php endforeach;?>
@@ -47,24 +44,24 @@
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword2">Confirm Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Your Password">
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Your Password">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Choose file to load</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1">
                     </div>
 
                     <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input name="checkbox" type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

@@ -1,24 +1,13 @@
+
 <?php
 
-$arr = [];
+$email = 'olya1607pavlova@gmail.com';
+$pattern = '/^([\w]{2,20}@[a-z]{2,10}\.[a-z]{2,4})$/i';
 
-for ($layer = 1; $layer <=3; $layer++) {
-
-    for ($row = 1; $row <= 3; $row++) {
-
-        for ($col = 1; $col <= 3; $col++) {
-            $arr[$layer][$row][$col] = rand(1, 100);
-        }
-    }
-}
-
-
-for ($layer = 1; $layer <=3; $layer++) {
-
-    for ($row = 1; $row <= 3; $row++) {
-
-        for ($col = 1; $col <= 3; $col++) {
-           echo $arr[$layer].''.$arr[$row].''.$arr[$col];
-        }
-    }
+if (preg_match($pattern, $email, $matches)) {
+    var_export($matches);
+    echo  '<br>';
+    echo  'Email is valid: "' . $matches[1] . '""';
+} else {
+    echo 'Email is not valid. Please try again';
 }
