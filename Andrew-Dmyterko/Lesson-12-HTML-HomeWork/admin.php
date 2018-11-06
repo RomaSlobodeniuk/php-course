@@ -3,9 +3,14 @@
 <?php
 require_once '../helpers/functions.php';
 require_once './add_bootstrap.php';
+require_once './config/config.php';
+
 
 $params = $_POST;
 if (!empty($params)) {
+
+    require_once './pars_file_weapon_to_array.php';
+//    echo ((PARSER==="JSON") ? "checked" : "")
 
 //    print_r($params);
 //    print_r($_FILES);

@@ -9,7 +9,7 @@
 
 require_once '../helpers/functions.php';
 require_once './add_bootstrap.php';
-
+require_once './config/config.php';
 
 $params = $_POST;
 //if (!empty($params['email'])) {
@@ -73,13 +73,38 @@ function pass($user_name, $passwd, $basa) {
                         <p class="lead"><em> Your password is -- <?php echo $params['passwd']; ?> </em></p>
                         <p class="lead"><em> Your MD5 password hash  -- <?php echo md5($params['passwd']); ?> </em></p>
                         <p class="lead"><em> Your E-Mail is  -- <?php echo $params['email']; ?> </em></p>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-sm-2 pt-0">Выбор парсера</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" <?php echo ((PARSER==="JSON") ? "checked" : ""); ?> >
+                                        <label class="form-check-label" for="gridRadios1">
+                                            JSON парсер
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" <?php echo ((PARSER==="MY") ? "checked" : ""); ?> >
+                                        <label class="form-check-label" for="gridRadios2">
+                                            Moй парсер
+                                        </label>
+                                    </div>
+                                    <div class="form-check disabled">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                                        <label class="form-check-label" for="gridRadios3">
+                                            Third disabled radio
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
                         <div class="row">
-                            <a class="btn btn-primary" href="./index.php#login" role="button">Вернуться назад</a>
+                            <a class="btn btn-primary active" aria-pressed="true" href="./index.php#login" role="button">Вернуться назад</a>
 
                             <form name="form1" enctype="multipart/form-data" action="./admin.php" method="post">
 <!--                        <a class="btn btn-danger" href="./admin.php" role="button">Добавить картинку</a>-->
                                 <input type="hidden" name="add_pic" value="add_pic">
-                                <input type="submit" class="btn btn-danger" value="Добавить картинку">
+                                <input type="submit" class="btn btn-danger active" aria-pressed="true" value="Добавить картинку">
                             </form>
 
                             <form name="form1" enctype="multipart/form-data" action="./admin.php" method="post">
