@@ -8,13 +8,12 @@
     </div>
 
 
-    <form name="form" method="post" enctype="multipart/form-data" action="">
+    <form name="form" method="post" enctype="multipart/form-data" action="functions.php">
         <input type="text" name="login" required value="Vasia">
-        <input type="password" placeholder="Enter your password" name="password" value="111">
+        <input type="password" placeholder="Enter your password" name="password1" value="">
+        <input type="password" placeholder="Enter your password" name="password2" value="">
         <input type="hidden" name="info">
-        <input type="email" name="email" required>
-        <input type="file" name="files[1]">
-        <input type="file" name="files[2]">
+        <input type="email" name="email" > //required
         <textarea name="comments" disabled></textarea>
         <input type="submit">
     </form>
