@@ -12,12 +12,12 @@ if (!empty($params['email'])) {
 $pictures = [
   [
       'name' => 'Black Humor',
-      'src' => '../assets/images/black-humor_o_817783.jpg',
+      'src' => '../assets/images/black-humor.jpg',
       'text' => 'Text 1 goes here'
   ] ,
   [
       'name' => 'Smiled Face',
-      'src' => '../assets/images/download.jpeg',
+      'src' => '../assets/images/smile.jpeg',
       'text' => 'Text 2 goes here'
   ] ,
   [

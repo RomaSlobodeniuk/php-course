@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <div class="jumbotron">
         <h1 class="display-4">Hello, world!</h1>
         <p class="lead">Текст статьи: This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -55,3 +55,38 @@
         </div>
     </div>
 </div>
+ -->
+ <div class="container">
+     <div class="form-wrap">
+        <form action="index.php" method="POST">
+            <div class="form-group">
+                <input name="name" type="text" placeholder="Введите Ваше имя"></div>
+            <div class="form-group">
+                <input name="email" type="email" placeholder="Введите Ваш email"></div>
+            <div class="form-group">
+                <input name="pass" type="password" placeholder="Введите Ваш пароль"></div>
+            <div class="form-group">
+                <input name="pass-repeat" type="password" placeholder="Повторите Ваш"></div>
+            <div class="form-group">
+               <button type="submit" class="btn-submit">Отправить</button>
+            </div>
+
+        </form>
+         <div class="info-wrap">
+             <p>
+<!--                 --><?php //if(!empty($userName)):?>
+<!--                     Поздравляем, --><?php //echo $userName; ?><!-- Вы успешно авторизировались!-->
+<!--                 --><?php //else:?>
+<!--                     -->
+<!--                 --><?php //endif;?>
+<!--                 --><?php //if(isset($params['email']) && empty($params['pass'])):?>
+<!--                     Введите email-->
+<!--                 --><?php //endif;?>
+<!--                 --><?php //if(isset($params['pass']) && empty($params['pass'])):?>
+<!--                     Введите пароль-->
+<!--                 --><?php //endif;?>
+                 <?php  ?>
+             </p>
+         </div>
+     </div>
+ </div>s
