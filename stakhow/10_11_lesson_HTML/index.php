@@ -6,8 +6,13 @@ $params = $_POST;
 if (!empty($params['name']) && !empty($params['email']) && !empty($params['pass']) && !empty($params['pass-repeat'])){
     if($params['pass'] === $params['pass-repeat'] ){
 
-     $nameUser = $params['name'];
+        $userName = $params['name'];
+    } else {
+        echo "<p>Пароли не совпадают</p>";
     }
+}
+else if(isset($params['name']) && isset($params['email']) && isset($params['pass']) && isset($params['pass-repeat'])){
+    echo "<p>Заполните форму</p>";
 }
 
 
