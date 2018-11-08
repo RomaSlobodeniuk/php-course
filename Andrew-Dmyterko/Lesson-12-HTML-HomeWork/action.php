@@ -9,28 +9,38 @@
 
 require_once '../helpers/functions.php';
 require_once './add_bootstrap.php';
+require_once './config/config.php';
 
 $params = $_POST;
-
-$users = [
-  1=>  [       'user'     => 'andrew.dmyterko@gmail.com',
-            'password' => '1234',
-            'name'     => 'Andrew Dmyterko'],
-
-  2=>  [       'user'     => 'sky_fox123@ukr.net',
-            'password' => '701051',
-            'name'     => 'Ivanov Ivan'],
-];
+//if (!empty($params['email'])) {
+//
+//    print_r($params);
+//    print_r($_FILES);
+//}
+// База данных пользователей
+require_once './pars_file_users_to_array.php';
+//$users = [
+//  1=>  [    'user'     => 'andrew.dmyterko@gmail.com',
+//            'password' => '1234',
+//            'name'     => 'Andrew Dmyterko'
+//  ],
+//
+//  2=>  [    'user'     => 'sky_fox123@ukr.net',
+//            'password' => '701051',
+//            'name'     => 'Ivanov Ivan'
+//  ],
+//];
 
 //var_dump($users);
 
 function pass($user_name, $passwd, $basa) {
-    $good = false;
+    $good = -1;
 
    foreach ($basa as $kk => $key) {
         if ($user_name===$key['user'] && $passwd===$key['password']) {
 //            echo $key['password'], $key['user'],$kk;
             $good = "$kk";
+
         }
     }
     return $good;
@@ -54,7 +64,7 @@ function pass($user_name, $passwd, $basa) {
                     ВВедите E-Mail!!!!
                 </div>
     <?php endif; ?>
-    <?php if (pass($params['email'], $params['passwd'], $users)): ?>
+    <?php if ((pass($params['email'], $params['passwd'], $users))>=0 && $error==0): ?>
                 <!-- если пароль правильный Выводим заставку Secret Area-->
 
                 <div class="jumbotron jumbotron-fluid">
@@ -63,19 +73,61 @@ function pass($user_name, $passwd, $basa) {
                         <p class="lead"><em> Your password is -- <?php echo $params['passwd']; ?> </em></p>
                         <p class="lead"><em> Your MD5 password hash  -- <?php echo md5($params['passwd']); ?> </em></p>
                         <p class="lead"><em> Your E-Mail is  -- <?php echo $params['email']; ?> </em></p>
-                        <hr class="my-4">
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-sm-2 pt-0">Выбор парсера</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" <?php echo ((PARSER==="JSON") ? "checked" : ""); ?> >
+                                        <label class="form-check-label" for="gridRadios1">
+                                            JSON парсер
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" <?php echo ((PARSER==="MY") ? "checked" : ""); ?> >
+                                        <label class="form-check-label" for="gridRadios2">
+                                            Moй парсер
+                                        </label>
+                                    </div>
+                                    <div class="form-check disabled">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                                        <label class="form-check-label" for="gridRadios3">
+                                            Third disabled radio
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="row">
+                            <a class="btn btn-primary active" aria-pressed="true" href="./index.php#login" role="button">Вернуться назад</a>
+
+                            <form name="form1" enctype="multipart/form-data" action="./admin.php" method="post">
+<!--                        <a class="btn btn-danger" href="./admin.php" role="button">Добавить картинку</a>-->
+                                <input type="hidden" name="add_pic" value="add_pic">
+                                <input type="submit" class="btn btn-danger active" aria-pressed="true" value="Добавить картинку">
+                            </form>
+
+                            <form name="form1" enctype="multipart/form-data" action="./admin.php" method="post">
+                                <input type="hidden" name="change" value="change">
+                                <input type="submit" class="btn btn-primary" value="Изменить данные">
+                            </form>
+<!--                        <a class="btn btn-danger" href="./admin1.php" name="change" role="button">Изменить данные</a>-->
+                        </div>
+                        <hr class="my-8">
                         <p><b>Note:</b> This is a secret data do not pass them on to third persons.</p>
                     </div>
                 </div>
-    <?php else: $error++;  ?>
+
+
+    <?php elseif($error==0): $error++;  ?>
                 <div class="alert alert-primary" role="alert">
                     Неправильный логин пароль!!!
                 </div>
     <?php endif; ?>
 
     <?php if ($error): ?>
-                <form class="col-sm-6" id="main-form" name="form" method="post" enctype="multipart/form-data" action="./index.php">
-                    <button type="Вернуться назад" class="btn btn-primary">Submit</button>
+                <form class="col-sm-6" id="main-form" name="form" method="post" enctype="multipart/form-data" action="./index.php#login">
+                    <button type="submit" class="btn btn-primary">Вернуться назад</button>
                 </form>
     <?php endif; ?>
 
@@ -87,11 +139,5 @@ function pass($user_name, $passwd, $basa) {
 <!--//    print_r($_FILES);-->
 <!--////    die();-->
 <!--//}-->
-
-
-
-
-
-
 
 <?php require_once './footer.php'; ?>
