@@ -1,4 +1,5 @@
 <footer>
+
 </footer>
 <script>
     var article = window.document.getElementById('article-1');
