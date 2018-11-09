@@ -74,10 +74,18 @@
         </form>
          <div class="info-wrap">
              <p>
-                 <?php if(!empty($nameUser)):?>
-                     Поздравляем, <?php echo $nameUser; ?> Вы успешно авторизировались!
-                 <?php endif;?>
-
+<!--                 --><?php //if(!empty($userName)):?>
+<!--                     Поздравляем, --><?php //echo $userName; ?><!-- Вы успешно авторизировались!-->
+<!--                 --><?php //else:?>
+<!--                     -->
+<!--                 --><?php //endif;?>
+<!--                 --><?php //if(isset($params['email']) && empty($params['pass'])):?>
+<!--                     Введите email-->
+<!--                 --><?php //endif;?>
+<!--                 --><?php //if(isset($params['pass']) && empty($params['pass'])):?>
+<!--                     Введите пароль-->
+<!--                 --><?php //endif;?>
+                 <?php  ?>
              </p>
          </div>
      </div>
