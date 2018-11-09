@@ -1,19 +1,22 @@
 
 
 <?php
-require_once '../helpers/functions.php';
+require_once './helpers/my_functions.php';
 require_once './add_bootstrap.php';
-require_once './config/config.php';
+// подключаем файл конфигурации config/config.json
+require_once './pars_config_json_file_to_array.php';
+// подключаем парсер в зависимости от конфигурации
+//require_once ($config['PARSER']=="MY") ? './pars_file_weapon_to_array.php' : './pars_json_weapon_to_array.php' ;
 
+getPicArray();
 
 $params = $_POST;
 if (!empty($params)) {
 
-    require_once './pars_file_weapon_to_array.php';
 //    echo ((PARSER==="JSON") ? "checked" : "")
 
-//    print_r($params);
-//    print_r($_FILES);
+    print_r($params);
+    print_r($_FILES);
 
     // В PHP 4.1.0 и более ранних версиях следует использовать $HTTP_POST_FILES
     // вместо $_FILES.
@@ -62,7 +65,7 @@ END;
     if (!empty($_POST['change'])):
     ?>
 
-    <?php require_once './pars_file_weapon_to_array.php'; ?>
+<!--    --><?php //require_once './pars_file_weapon_to_array.php'; ?>
 
 <!--Выводим для изменения в цикле все оружие -->
         <div class="jumbotron jumbotron-fluid">
@@ -83,6 +86,8 @@ END;
                         <form name="form2" enctype="multipart/form-data" action="./admin.php" method="post">
                             <input type="hidden" name="change_pic" value="change_pic">
                             <input type="hidden" name="number_pic" value="<?php echo $index ?>">
+                            <input name="delete_pic" type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Удалить картинку</label>
                             <input type="submit" class="btn btn-primary" value="Изменить">
                         </form>
 <!--                        <a href="--><?php //echo $picture['url'] ?><!--" class="btn btn-primary">Изменить</a>-->
@@ -96,10 +101,10 @@ END;
     <?php endif;
 
     // изменение данных
-    if (!empty($_POST['change_pic'])):
+    if (!empty($_POST['change_pic'])&&empty($_POST['delete_pic'])):
 
 
-    require_once './pars_file_weapon_to_array.php';
+//    require_once './pars_file_weapon_to_array.php';
 
 ?>
         <!--Фома добавления изменения атребутов -->
@@ -121,19 +126,46 @@ END;
         </form>
     </div>
 
-
-
     <?php
     endif;
+    // если стоит чекбокс удалить картинку
+    if (!empty($_POST['delete_pic']) && ($_POST['delete_pic']=='on')) {
+        unset($pictures[$_POST['number_pic']]);
+        $pictures = array_values($pictures);
+//        var_dump($pictures);
+        // выбор парсера на записьв зависимости от конфигурации
+        if ($config['PARSER']=="MY") {
+
+            $file = './array_of_weapon.txt';
+
+            $text_array = "";
+            $text_array .= "-------------------------------------------------------------\n";
+            foreach ($pictures as $item){
+                foreach ($item as $key => $value ) {
+                    $text_array .= "'".$key."'"." => "."'".$value."'"."\n";
+                }
+                $text_array .= "-------------------------------------------------------------\n";
+            }
+//        $array_text = implode("-------------------------------------------------------------",$pictures);
+//        echo $text_array;
+            $str = file_put_contents($file,$text_array);
+        }
+        elseif ($config['PARSER']=="JSON") { file_put_contents($file_json,json_encode($pictures, JSON_PRETTY_PRINT));}
+        header("Location:index.php");
+}
 // изменяем данные элеметна массива
     if (!empty($_POST['text1'])):
-        require_once './pars_file_weapon_to_array.php';
+//        require_once './pars_file_weapon_to_array.php';
 //        print_r($pictures);
         $pictures[trim($_POST['number_pic'])]['name'] = $_POST['name'];
         $pictures[trim($_POST['number_pic'])]['text'] = $_POST['text1'];
         $pictures[trim($_POST['number_pic'])]['url'] = $_POST['url'];
 //        array_push($pictures,$_POST);
 //        print_r($pictures);
+
+    // выбор парсера на записьв зависимости от конфигурации
+    if ($config['PARSER']=="MY") {
+
         $file = './array_of_weapon.txt';
 
         $text_array = "";
@@ -147,6 +179,8 @@ END;
 //        $array_text = implode("-------------------------------------------------------------",$pictures);
 //        echo $text_array;
         $str = file_put_contents($file,$text_array);
+        }
+        elseif ($config['PARSER']=="JSON") {    file_put_contents($file_json,json_encode($pictures, JSON_PRETTY_PRINT));}
         header("Location:index.php");
 //        require_once './index.php';
 
@@ -154,23 +188,29 @@ END;
 
 // пишем в базу новый файл картинки
     if (!empty($_POST['text'])):
-    require_once './pars_file_weapon_to_array.php';
+//    require_once './pars_file_weapon_to_array.php';
 //    print_r($pictures);
 //    $pictures[count($pictures)] = $_POST;
     array_push($pictures,$_POST);
 //    print_r($pictures);
-        $file = './array_of_weapon.txt';
-        $text_array ="";
-        $text_array .= "-------------------------------------------------------------\n";
-        foreach ($pictures as $item){
-            foreach ($item as $key => $value ) {
-                $text_array .= "'".$key."'"." => "."'".$value."'"."\n";
+
+    // выбор парсера на записьв зависимости от конфигурации
+    if ($config['PARSER']=="MY") {
+
+    $file = './array_of_weapon.txt';
+    $text_array = "";
+    $text_array .= "-------------------------------------------------------------\n";
+        foreach ($pictures as $item) {
+            foreach ($item as $key => $value) {
+                $text_array .= "'" . $key . "'" . " => " . "'" . $value . "'" . "\n";
             }
             $text_array .= "-------------------------------------------------------------\n";
         }
 //        $array_text = implode("-------------------------------------------------------------",$pictures);
 //        echo $text_array;
-        $str = file_put_contents($file,$text_array);
+    $str = file_put_contents($file, $text_array);
+    }
+    elseif ($config['PARSER']=="JSON") {file_put_contents($file_json,json_encode($pictures, JSON_PRETTY_PRINT));}
         header("Location:index.php");
 //        require_once './index.php';
     endif;
