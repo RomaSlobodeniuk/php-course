@@ -30,25 +30,22 @@
     <h4>Heading4</h4>
     <h5>Heading5</h5>
     <h6>Heading6</h6>
-    <form>
-        Введи логин-пароль! БЕГОМ!!!<br>
-        <input type="text" name="login" required value="Vasja">
-        <input type="password" name="password" value="111">
-        <br><br>
-        Вставляй файл!!! <br>
-        <input type="file" name="file"><br>
-        И напиши чето просебя. Прям сюды:<br>
-        <textarea name="coment" cols="50"></textarea><br>
-    </form>
-    <img src="image/black-humor.jpg" alt="BlackHumor">
+    <div class="red">
+        Вы вошли на наш сайт под именем:
+        <?php
+        session_start();
+        echo $_SESSION['data']['login'];
+        ?>
+        <br>
+    </div>
     <br>
+    <img src="image/black-humor.jpg" alt="BlackHumor">
     <img src="image/smile.jpeg" alt="smile">
     <br>
-    <a href = "http://google.com.ua">Link to Google
-        <p> Text Article</p>
-    </a>
+    <a href = "http://google.com.ua">Link to Google </a>
+    <p> Text Article</p>
     <br>
-       <span>__Span1__</span>    <span>  Span2  </span>    <span>==Span3==</span>
+       <span>__Span1_ </span>    <span>  Span2  </span>    <span>==Span3==</span>
     <!--
         <script>
             var article = window.document.getElementById('article-1');
