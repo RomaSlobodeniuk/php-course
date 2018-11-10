@@ -14,6 +14,8 @@ define('PIC_ARRAY_JSON'  , './array_of_weapon.json');
 // путь к массиву пользователей JSON парсера
 define('USERS_ARRAY_JSON' , './array_of_users.json');
 
+// путь к каталогу картинок
+define('USERS_PIC_PATH' , '/var/www/html/MyPHP/Lesson-12-HTML-HomeWork_refactor/weapon_img/');
 
 //define("PARSER", "JSON");
 //echo PARSER;

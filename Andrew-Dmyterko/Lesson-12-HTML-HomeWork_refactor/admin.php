@@ -4,7 +4,7 @@
 require_once './helpers/my_functions.php';
 require_once './add_bootstrap.php';
 // подключаем файл конфигурации config/config.json
-require_once './pars_config_json_file_to_array.php';
+//require_once './pars_config_json_file_to_array.php';
 // подключаем парсер в зависимости от конфигурации
 //require_once ($config['PARSER']=="MY") ? './pars_file_weapon_to_array.php' : './pars_json_weapon_to_array.php' ;
 
@@ -13,17 +13,15 @@ getPicArray();
 $params = $_POST;
 if (!empty($params)) {
 
-//    echo ((PARSER==="JSON") ? "checked" : "")
-
-    print_r($params);
-    print_r($_FILES);
+//    print_r($params);
+//    print_r($_FILES);
 
     // В PHP 4.1.0 и более ранних версиях следует использовать $HTTP_POST_FILES
     // вместо $_FILES.
     if (!empty($_FILES['userfile']['name'])):
 
-    $uploaddir = '/var/www/html/MyPHP/Lesson-12-HTML-HomeWork/weapon_img/';
-    $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+        $uploaddir = USERS_PIC_PATH;
+        $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
         if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
             echo <<<END
@@ -41,33 +39,34 @@ END;
 
 //    print_r($_FILES);
 
-    echo "<img src=\"weapon_img/".$_FILES['userfile']['name']."\" alt=\"альтернативный текст\">";
-?>
+        echo "<img src=\"weapon_img/" . $_FILES['userfile']['name'] . "\" alt=\"альтернативный текст\">";
+        ?>
 
-<!--Фома добавления картинки ввод атребутов -->
-    <div class="jumbotron">
-        <form name="form" method="post" class="col-sm-6" enctype="multipart/form-data" action="">
-            <input type="text" name="name"  class="form-control" required placeholder="Имя оружия">
-            <input type="hidden" name="src" value="<?php echo "weapon_img/".$_FILES['userfile']['name']; ?>">
-            <textarea name="text" required class="form-control" placeholder="Описание оружия"></textarea>
-            <input type="text" name="url" class="form-control" size="100" required placeholder="Ссылка URL">
-<!--            <input type="hidden" name="my_dir" value="--><?php //echo $uploaddir; ?><!--">-->
-            <button type="submit" class="btn btn-primary">В базу</button>
-        </form>
-    </div>
+        <!--Фома добавления картинки ввод атребутов -->
+        <div class="jumbotron">
+            <form name="form" method="post" class="col-sm-6" enctype="multipart/form-data" action="">
+                <input type="text" name="name" class="form-control" required placeholder="Имя оружия">
+                <input type="hidden" name="src" value="<?php echo "weapon_img/" . $_FILES['userfile']['name']; ?>">
+                <textarea name="text" required class="form-control" placeholder="Описание оружия"></textarea>
+                <input type="text" name="url" class="form-control" size="100" required placeholder="Ссылка URL">
+                <!--            <input type="hidden" name="my_dir" value="--><?php //echo $uploaddir;
+                ?><!--">-->
+                <button type="submit" class="btn btn-primary">В базу</button>
+            </form>
+        </div>
 
 
-<?php
+    <?php
     endif;
 
 
 //    нажата кнопка изменить данные
     if (!empty($_POST['change'])):
-    ?>
+        ?>
 
-<!--    --><?php //require_once './pars_file_weapon_to_array.php'; ?>
+<!--       --><?php //require_once './pars_file_weapon_to_array.php';?>
 
-<!--Выводим для изменения в цикле все оружие -->
+        <!--Выводим для изменения в цикле все оружие -->
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-7"><u>Выберите картинку которую хотите изменить</u></h1>
@@ -76,143 +75,86 @@ END;
             </div>
         </div>
         <div class="row">
-        <?php if (!empty($pictures)):?>
-            <?php foreach ($pictures as $index => $picture):?>
-                <div class="card col-sm-2" style="width: 18rem;background-color: #e9ecef">
-                    <img class="card-img-top" src="<?php echo $picture['src'] ?>" title="<?php echo $picture['name'] ?>" alt="black-humor">
-                    <div class="card-body">
-                        <h5 class="card-title"><u><?php echo $picture['name'] ?></u></h5>
-                        <p class="card-text"><?php echo $picture['text'] ?></p>
-                        <form name="form2" enctype="multipart/form-data" action="./admin.php" method="post">
-                            <input type="hidden" name="change_pic" value="change_pic">
-                            <input type="hidden" name="number_pic" value="<?php echo $index ?>">
-                            <input name="delete_pic" type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Удалить картинку</label>
-                            <input type="submit" class="btn btn-primary" value="Изменить">
-                        </form>
-<!--                        <a href="--><?php //echo $picture['url'] ?><!--" class="btn btn-primary">Изменить</a>-->
+            <?php if (!empty($pictures)): ?>
+                <?php foreach ($pictures as $index => $picture): ?>
+                    <div class="card col-sm-2" style="width: 18rem;background-color: #e9ecef">
+                        <img class="card-img-top" src="<?php echo $picture['src'] ?>"
+                             title="<?php echo $picture['name'] ?>" alt="black-humor">
+                        <div class="card-body">
+                            <h5 class="card-title"><u><?php echo $picture['name'] ?></u></h5>
+                            <p class="card-text"><?php echo $picture['text'] ?></p>
+                            <form name="form2" enctype="multipart/form-data" action="./admin.php" method="post">
+                                <input type="hidden" name="change_pic" value="change_pic">
+                                <input type="hidden" name="number_pic" value="<?php echo $index ?>">
+                                <input name="delete_pic" type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Удалить картинку</label>
+                                <input type="submit" class="btn btn-primary" value="Изменить">
+                            </form>
+                            <!--                        <a href="-->
+                            <?php //echo $picture['url'] ?><!--" class="btn btn-primary">Изменить</a>-->
+                        </div>
                     </div>
-                </div>
-            <?php endforeach;?>
-        <?php endif;?>
-    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
 
 
     <?php endif;
 
     // изменение данных
-    if (!empty($_POST['change_pic'])&&empty($_POST['delete_pic'])):
+    if (!empty($_POST['change_pic']) && empty($_POST['delete_pic'])):
 
-
-//    require_once './pars_file_weapon_to_array.php';
-
-?>
+        ?>
         <!--Фома добавления изменения атребутов -->
-    <div class="jumbotron">
-        <h3 class="display-6"><u>Измените необходимые атрибуты</u></h3>
-        <hr class="my-8">
-        <p><b>Note:</b> Подтвердите выбор нажатием кнопки <u>"Изменить данные"</u></p>
-        ​<picture>
-<!--            <source srcset="..." type="image/svg+xml">-->
-            <img src="<?php echo $pictures[$_POST['number_pic']]['src'] ?>" class="img-fluid img-thumbnail" alt="...">
-        </picture>
+        <div class="jumbotron">
+            <h3 class="display-6"><u>Измените необходимые атрибуты</u></h3>
+            <hr class="my-8">
+            <p><b>Note:</b> Подтвердите выбор нажатием кнопки <u>"Изменить данные"</u></p>
+            ​
+            <picture>
+                <!--            <source srcset="..." type="image/svg+xml">-->
+                <img src="<?php echo $pictures[$_POST['number_pic']]['src'] ?>" class="img-fluid img-thumbnail"
+                     alt="...">
+            </picture>
 
-        <form name="form3" method="post" class="col-sm-6" enctype="multipart/form-data" action="">
-            <input type="text" name="name"  class="form-control" required value="<?php echo $pictures[$_POST['number_pic']]['name'] ?>">
-            <textarea name="text1" required class="form-control" placeholder="Описание оружия"><?php echo $pictures[$_POST['number_pic']]['text'] ?></textarea>
-            <input type="text" name="url" class="form-control" size="100" required value="<?php echo $pictures[$_POST['number_pic']]['url'] ?>">
-            <input type="hidden" name="number_pic" value=" <?php echo $_POST['number_pic']; ?>">
-            <button type="submit" class="btn btn-primary">Изменить данные</button>
-        </form>
-    </div>
+            <form name="form3" method="post" class="col-sm-6" enctype="multipart/form-data" action="">
+                <input type="text" name="name" class="form-control" required
+                       value="<?php echo $pictures[$_POST['number_pic']]['name'] ?>">
+                <textarea name="text1" required class="form-control"
+                          placeholder="Описание оружия"><?php echo $pictures[$_POST['number_pic']]['text'] ?></textarea>
+                <input type="text" name="url" class="form-control" size="100" required
+                       value="<?php echo $pictures[$_POST['number_pic']]['url'] ?>">
+                <input type="hidden" name="number_pic" value=" <?php echo $_POST['number_pic']; ?>">
+                <button type="submit" class="btn btn-primary">Изменить данные</button>
+            </form>
+        </div>
 
     <?php
     endif;
     // если стоит чекбокс удалить картинку
-    if (!empty($_POST['delete_pic']) && ($_POST['delete_pic']=='on')) {
+    if (!empty($_POST['delete_pic']) && ($_POST['delete_pic'] == 'on')) {
         unset($pictures[$_POST['number_pic']]);
         $pictures = array_values($pictures);
-//        var_dump($pictures);
-        // выбор парсера на записьв зависимости от конфигурации
-        if ($config['PARSER']=="MY") {
-
-            $file = './array_of_weapon.txt';
-
-            $text_array = "";
-            $text_array .= "-------------------------------------------------------------\n";
-            foreach ($pictures as $item){
-                foreach ($item as $key => $value ) {
-                    $text_array .= "'".$key."'"." => "."'".$value."'"."\n";
-                }
-                $text_array .= "-------------------------------------------------------------\n";
-            }
-//        $array_text = implode("-------------------------------------------------------------",$pictures);
-//        echo $text_array;
-            $str = file_put_contents($file,$text_array);
-        }
-        elseif ($config['PARSER']=="JSON") { file_put_contents($file_json,json_encode($pictures, JSON_PRETTY_PRINT));}
+        writePicArray();
         header("Location:index.php");
-}
+    }
+
 // изменяем данные элеметна массива
-    if (!empty($_POST['text1'])):
-//        require_once './pars_file_weapon_to_array.php';
-//        print_r($pictures);
+    if (!empty($_POST['text1'])) {
         $pictures[trim($_POST['number_pic'])]['name'] = $_POST['name'];
         $pictures[trim($_POST['number_pic'])]['text'] = $_POST['text1'];
         $pictures[trim($_POST['number_pic'])]['url'] = $_POST['url'];
-//        array_push($pictures,$_POST);
-//        print_r($pictures);
-
-    // выбор парсера на записьв зависимости от конфигурации
-    if ($config['PARSER']=="MY") {
-
-        $file = './array_of_weapon.txt';
-
-        $text_array = "";
-        $text_array .= "-------------------------------------------------------------\n";
-        foreach ($pictures as $item){
-            foreach ($item as $key => $value ) {
-                $text_array .= "'".$key."'"." => "."'".$value."'"."\n";
-            }
-            $text_array .= "-------------------------------------------------------------\n";
-        }
-//        $array_text = implode("-------------------------------------------------------------",$pictures);
-//        echo $text_array;
-        $str = file_put_contents($file,$text_array);
-        }
-        elseif ($config['PARSER']=="JSON") {    file_put_contents($file_json,json_encode($pictures, JSON_PRETTY_PRINT));}
+        writePicArray();
         header("Location:index.php");
-//        require_once './index.php';
-
-    endif;
+    }
 
 // пишем в базу новый файл картинки
     if (!empty($_POST['text'])):
-//    require_once './pars_file_weapon_to_array.php';
-//    print_r($pictures);
-//    $pictures[count($pictures)] = $_POST;
-    array_push($pictures,$_POST);
-//    print_r($pictures);
+        array_push($pictures, $_POST);
+        //    print_r($pictures);
 
-    // выбор парсера на записьв зависимости от конфигурации
-    if ($config['PARSER']=="MY") {
-
-    $file = './array_of_weapon.txt';
-    $text_array = "";
-    $text_array .= "-------------------------------------------------------------\n";
-        foreach ($pictures as $item) {
-            foreach ($item as $key => $value) {
-                $text_array .= "'" . $key . "'" . " => " . "'" . $value . "'" . "\n";
-            }
-            $text_array .= "-------------------------------------------------------------\n";
-        }
-//        $array_text = implode("-------------------------------------------------------------",$pictures);
-//        echo $text_array;
-    $str = file_put_contents($file, $text_array);
-    }
-    elseif ($config['PARSER']=="JSON") {file_put_contents($file_json,json_encode($pictures, JSON_PRETTY_PRINT));}
+        writePicArray();
         header("Location:index.php");
-//        require_once './index.php';
     endif;
 
 }
