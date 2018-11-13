@@ -6,6 +6,12 @@ $params = $_POST;
 if (!empty($params['email'])) {
     debug($params);
     debug($_FILES);
+    echo("Нажми кнопку! Зайдешь на сайт");
+    //<input type="submit" >
+
+}
+else {
+    echo("Введи Е-мыло!!!");
     die();
 }
 

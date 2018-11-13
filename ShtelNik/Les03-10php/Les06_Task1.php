@@ -1,13 +1,17 @@
 <?php
     echo "Hello Lesson_06 <br />";
     echo "<br />";
-/*
-    $inetPage=file_get_contents("http://127.0.0.1/");
-    file_put_contents("newFile.php",$inetPage);
-    echo "Создано новый файл newFile.php";
-*/
+
 //  task1 of Lesson_06:
 echo " task1 of Lesson_06: ","<br />";
+echo " Создать массив элементов ","<br />";
+echo " Создать файл, положить массив в файл ","<br />";
+
+$inetPage=file_get_contents("http://127.0.0.1/");
+file_put_contents("newFile.php",$inetPage);
+echo "Создано новый файл newFile.php";
+
+echo "<br />";
 $ara = [
     0 => [
         "Fam" => "Ivanov" ,
@@ -58,10 +62,6 @@ foreach ($ara as $i => $vvv) {
         echo $vvv["Fam"], "<br />";
     }
 }
-echo "<br />";
-/*
-
-*/
 echo "<br />";
 ?>
 

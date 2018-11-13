@@ -46,7 +46,7 @@ echo "<br>";
 echo "Lesson_04 Task3 <br>"; //Task3
 echo "Создать массив чисел рандомно, ","<br>";
 echo "найти Мах,Мin значения, ","<br>";
-echo "вывести какие знчения повторяются и сколько раз ","<br>";
+echo "вывести какие знчения повторяются и сколько раз ","<br><br>";
 $longArr = 50; //rand(10,50); // создаем длину массива
 echo "Create an array that has a length of ", $longArr ,"<br>";
 for ($i=0;$i<$longArr;$i++) {
@@ -79,7 +79,13 @@ for ($i=0;$i<$longArr;$i++){
 echo "#Final Task3# <br />";
 echo " <br>";
 
-echo "Lesson_04 Task4a //do_while <br />"; //Task4a
+echo "Lesson_04 Task4<br />";
+echo "Задать челу стартовую касу 2000грн.<br />";
+echo "Пусть делает покупки по рандомным ценам пока еще деньги есть<br />";
+echo "Вывести инфу после каждой покупки о суме покупки и остатке кассы<br />";
+echo "Когда деньги закончатся, вывести сообщение<br /><br />";
+
+echo "Lesson_04 Task4a // USE do_while <br />"; //Task4a
 $kasa=2000;
 echo "kasa=",$kasa,"$<br />";
 do {
@@ -97,7 +103,7 @@ do {
 } while ($priBable);
 echo "<br />";
 
-echo "Lesson_04 Task4b //while <br />"; //Task4b
+echo "Lesson_04 Task4b // USE  while <br />"; //Task4b
 $kasa=2000;
 echo "kasa=",$kasa,"$<br />";
 while ($kasa>0){
@@ -115,16 +121,15 @@ echo "#Final Task4# <br>";
 echo "<br>";
 
 echo "Lesson_05 Task5 <br>"; //Task5
+echo "Створіть масив з назвами усіх місяців року.
+ Використовуючи цикл або цикл із switch-case виведіть номер місяця і його назву <br />";
 $mns=["Jan","Feb","Mart","Apr","May","June","Jule","Aug","Sep","Okt","Nov","Dec"];
 for ($i=0;$i<=count($mns)-1;$i++) {
     echo $i+1,".  ","$mns[$i]","<br>";
 }
-/*
-    $inetPage=file_get_contents("http://127.0.0.1/");
-    file_put_contents("newFile.php",$inetPage);
-    echo "Создано новый файл newFile.php";
-*/
 echo "#Final Task5# <br>";
 echo "Final Lesson_04 <br>";
 ?>
+
+
 
