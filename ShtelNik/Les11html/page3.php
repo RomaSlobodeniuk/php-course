@@ -15,21 +15,7 @@
 </head>
 <body class="background-image">
     <h1 class = "red">Heading1 </h1>
-    <div>
-    <h2>
-        <span>
-            Heading2
-        </span>
-    </h2>
-    </div>
-    <div>
-        <p>
-        <h3>Heading3</h3>
-        </p>
-    </div>
-    <h4>Heading4</h4>
-    <h5>Heading5</h5>
-    <h6>Heading6</h6>
+
     <div class="red">
         Вы вошли на наш сайт под именем:
         <?php
@@ -39,6 +25,21 @@
         <br>
     </div>
     <br>
+    <div>
+        <h2>
+        <span>
+            Heading2
+        </span>
+        </h2>
+    </div>
+    <div>
+        <p>
+        <h3>Heading3</h3>
+        </p>
+    </div>
+    <h4>Heading4</h4>
+    <h5>Heading5</h5>
+    <h6>Heading6</h6>
     <img src="image/black-humor.jpg" alt="BlackHumor">
     <img src="image/smile.jpeg" alt="smile">
     <br>

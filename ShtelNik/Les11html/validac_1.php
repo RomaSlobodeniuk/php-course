@@ -9,6 +9,28 @@ $vPsw1 = false;
 $vPsw2 = false;
 $vEmail = false;
 
+//создаем вспомогательную функцию для вывода массива на екран
+function debug($array) {
+    echo '<pre>';
+    print_r($array);
+    echo '</pre>';
+}
+
+//функция валидации Е-мейла регулярным выражением
+function validEmail ($str) {
+    echo 'Проверяем на валидность следующий E-mail: <br />';
+    echo $str, '<br />';
+    //Регулярное выражение для валидации E-mail:
+    preg_match('/^([\w\-]([\w\-\.]{0,18}[\w\-])|([\w\-]{0,19}))(@)([a-zA-Z]{1,10})(\.)([a-z]{2,4})$/', $str,$mach);
+    if (! empty($mach[0])) {
+        echo 'Это годный E-mail: <br />';
+        debug($mach);
+    }
+    else {
+        echo 'Непавильный формат E-mail!!! ','<br />';
+    }
+    echo '<br />';
+}
 //функция валидации логина регулярным выражением
 function validLog($Log,&$vLog) {
     preg_match('/([\w]){1,6}/', $Log, $mach);
@@ -58,7 +80,7 @@ function validPsw2($Psw1,$Psw2,&$vPsw2) {
 
 //функция валидации Е-мейла регулярным выражением
 function validEmail($Email,&$vEmail) {
-    preg_match('/^([\w\-]([\w\-\.]{0,18}[\w\-])|([\w\-]{0,19}))(@)([a-zA-Z]{1,10})(\.)([a-z]{2,4})$/', $Email,$mach);
+    preg_match('/([\w\-\.]{1,20}@[\w]{1,10}\.?[a-z]{2,4}$)/', $Email,$mach);
     if (! empty($mach[0])) {
         echo "Вы ввели годный Email",'<br />';
         var_export($mach[0]);
