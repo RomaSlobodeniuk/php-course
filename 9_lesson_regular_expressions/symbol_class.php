@@ -6,8 +6,8 @@ require_once '../helpers/functions.php';
  * '/pattern/i'
  */
 
-$greeting = 'Happy 2018 Year!';
-$pattern = '/([^a-z\s]{1,4})/i';
+$greeting = 'Happy 201098 Year!';
+$pattern = '/\s([1][9][\d]{1,2}|[2][0][\d]{1,2})/i';
 preg_match($pattern, $greeting, $matches);
 debug([
     'input_string' => $greeting,
