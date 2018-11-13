@@ -9,9 +9,12 @@
 //подключаем глобальные параметры
 require_once 'config/config.php';
 
+session_start();
+
 $config = [];   // массив сохраненных данных форм
 $pictures = []; // массив картинок
 $users = [];    // массив пользователей
+$sessions =[];   // массив пользовательских сессий
 
 // парсим json содержимое FORM_CONFIG в массив $config
 function getFormConfig() {
@@ -73,23 +76,6 @@ function parsTxtFileUsersToArray() {
         }
         $i++;
     }
-    //print_r($pictures);
-
-    //preg_match_all('/\'(name|src|text|url)\'\s+=>\s+\'(.+)\'/i', $str, $matches);
-    ////    [\w\.]{1,20}+@[\w]+\.?[\w]+\.[\w]{1,4}+)
-    //
-    //
-    //print_r($matches);
-    //
-    //
-    //
-    //foreach ($matches as $dann) {
-    //    echo "$dann[1] => $dann[2]<br>";
-    //
-    //
-    // }
-    //
-    //
 }
 
 // парсим JSON содержимое USER_ARRAY_JSON в массив $users (JSON парсер)
@@ -123,7 +109,7 @@ function getPicArray() {
 }
 
 // изменяем используемый парсер (значение передается из формы)
-function changeParser($parser) {
+function changeParser($parser, $session_time) {
     global $config;
     switch ($parser) {
         case "JSON" :
@@ -135,6 +121,7 @@ function changeParser($parser) {
         default:
             header("Location:index.php");
     }
+    $config['SESSION_TIME'] = $session_time;
 
     file_put_contents(FORM_CONFIG,json_encode($config, JSON_PRETTY_PRINT));
     header("Location:index.php");
@@ -166,8 +153,6 @@ function writePicArrayToTxtFile() {
         }
         $text_array .= "-------------------------------------------------------------\n";
     }
-//        $array_text = implode("-------------------------------------------------------------",$pictures);
-//        echo $text_array;
     $str = file_put_contents($file, $text_array);
 }
 
@@ -187,4 +172,68 @@ function writePicArray() {
     } elseif ($config['PARSER'] == "JSON") {
         writePicArrayToJsonFile();
     }
+}
+
+// создаем новую сессию
+function new_session($user_id, $user_name, $user) {
+    $file = USERS_SESSION_PATH;
+    global $sessions;
+
+    $sessions=json_decode(file_get_contents($file), true);
+
+    $_SESSION['user_session_id'] = session_id();
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['user_name'] = $user_name;
+    $_SESSION['user'] = $user;
+    $_SESSION['time'] = time();
+
+    array_push($sessions,$_SESSION);
+    file_put_contents($file,json_encode($sessions, JSON_PRETTY_PRINT));
+}
+
+// проверяем сессию
+function exists_session() {
+
+    getFormConfig();
+
+    $file = USERS_SESSION_PATH;
+    $exists = ['user_id' => -1];
+
+    global $sessions;
+    global $config;
+
+    $sessions=json_decode(file_get_contents($file), true);
+
+    // проверяем наличие зарегистрированной сессии
+    foreach ($sessions as $key => $val) {
+        // проверяем наличие сессии и чтоб сессия была не просрочена
+        if ($val['user_session_id'] == session_id() && ((time() - $val['time'])<= $config["SESSION_TIME"])) {
+            // обновляем сессию пишем новое время
+            $sessions[$key]['time'] = time();
+            // выбираем параметры по сессии - имя, email, id
+            $exists = [
+                'user_id' => $val['user_id'],
+                'user_name' => $val['user_name'],
+                'user' => $val['user']
+            ];
+//            print_r($sessions);
+            sessionWrite();
+        }
+        // проверяем наличие сессии и если сессия просрочена unset
+        if ($val['user_session_id'] == session_id() && ((time() - $val['time']) > $config["SESSION_TIME"])) {
+            unset($sessions[$key]);
+            sessionWrite();
+            // не делать редирект сам на себя
+            if (basename(($_SERVER['SCRIPT_FILENAME']))<>"index.php") header("Location:index.php");
+        }
+    }
+    return $exists;
+}
+
+// пишем массив $session в JSON файл выбор парсера не учитываем используем только JSON
+function sessionWrite() {
+    $file = USERS_SESSION_PATH;
+    global $sessions;
+    $sessions = array_values($sessions);
+    file_put_contents($file,json_encode($sessions, JSON_PRETTY_PRINT));
 }

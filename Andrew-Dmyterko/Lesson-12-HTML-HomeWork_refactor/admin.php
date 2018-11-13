@@ -1,14 +1,11 @@
-
-
 <?php
 require_once './helpers/my_functions.php';
 require_once './add_bootstrap.php';
-// подключаем файл конфигурации config/config.json
-//require_once './pars_config_json_file_to_array.php';
-// подключаем парсер в зависимости от конфигурации
-//require_once ($config['PARSER']=="MY") ? './pars_file_weapon_to_array.php' : './pars_json_weapon_to_array.php' ;
 
+// База данных картинок
 getPicArray();
+// проверяем наличие сессии и обновляем ее
+$ec = exists_session();
 
 $params = $_POST;
 if (!empty($params)) {
@@ -16,8 +13,6 @@ if (!empty($params)) {
 //    print_r($params);
 //    print_r($_FILES);
 
-    // В PHP 4.1.0 и более ранних версиях следует использовать $HTTP_POST_FILES
-    // вместо $_FILES.
     if (!empty($_FILES['userfile']['name'])):
 
         $uploaddir = USERS_PIC_PATH;
@@ -63,9 +58,6 @@ END;
 //    нажата кнопка изменить данные
     if (!empty($_POST['change'])):
         ?>
-
-<!--       --><?php //require_once './pars_file_weapon_to_array.php';?>
-
         <!--Выводим для изменения в цикле все оружие -->
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
@@ -97,7 +89,6 @@ END;
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-
 
     <?php endif;
 
@@ -152,7 +143,6 @@ END;
     if (!empty($_POST['text'])):
         array_push($pictures, $_POST);
         //    print_r($pictures);
-
         writePicArray();
         header("Location:index.php");
     endif;

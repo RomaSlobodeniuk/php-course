@@ -35,7 +35,24 @@
             <?php endforeach;?>
         <?php endif;?>
     </div>
+<?php //echo "<br>".time()."<br>".exists_session()."<br>";
 
+$ec = exists_session();
+//var_dump($ec);
+    if ($ec['user_id']>=0 ): ?>
+
+  <div class="jumbotron">
+        <a name="login"></a>
+        <p class="lead"><em>Welcome back <?php echo $ec['user']; ?> press 'Submit' to enter the secret area</em></p>
+        <div class="row justify-left-left">
+            <form class="col-sm-6" id="main-form" name="form-activ" method="post" enctype="multipart/form-data" action="./action.php">
+                <input type="hidden" name="active_session" value="active_session">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+<?php  else : ?>
     <div class="jumbotron">
         <a name="login"></a>
         <p class="lead"><em>Please enter your login and password to enter the secret area</em></p>
@@ -66,5 +83,7 @@
             </form>
         </div>
     </div>
+
+<?php endif; ?>
 
 </div>

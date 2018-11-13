@@ -14,10 +14,7 @@ require_once './helpers/my_functions.php';
 
 getPicArray(); // добавляем массив картинок
 
-
 require_once './header.php';
 require_once './main.php';
 require_once './footer.php';
 
-
-?>

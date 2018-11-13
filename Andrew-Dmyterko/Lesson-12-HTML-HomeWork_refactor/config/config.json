@@ -1,3 +1,4 @@
 {
-    "PARSER": "MY"
+    "PARSER": "JSON",
+    "SESSION_TIME": "100"
 }
