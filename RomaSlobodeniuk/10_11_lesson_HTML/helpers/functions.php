@@ -23,10 +23,12 @@ function login() {
     if ($params) {
         if ($params['pass_1'] === $params['pass_2']) {
             $_SESSION['email'] = $params['email'];
-            $_SESSION['time'] = $_COOKIE['time'] = time();
+            $_SESSION['time'] = time();
+            setcookie("test_cookie", time());
+            setcookie("test_cookie", time(), time() + 60);
             setcookie(
                 "test_cookie",
-                'value',
+                time(),
                 time() + 60,
                 '/opt/lampp/htdocs/php_course/RomaSlobodeniuk/10_11_lesson_HTML/',
                 "localhost",
@@ -74,7 +76,7 @@ function checkSession() {
 function unLogin() {
     unset($_SESSION['email']);
     unset($_SESSION['time']);
-    unset($_COOKIE['time']);
+    unset($_COOKIE['test_cookie']);
     header('Location: ' . ROOT_PATH);
     die();
 }
