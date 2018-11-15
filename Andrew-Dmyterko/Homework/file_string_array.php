@@ -14,19 +14,19 @@
 $file = './data.txt';
 
 // прочитали $file в строку
-$strFromFile = file_get_contents("$file");
+$strFromFile = file_get_contents($file);
 
 // Выводим исходную строку
 echo "Выводим исходную строку<br>$strFromFile<br><hr><br>";
 
 // парсим $file через функцию передаем символы для парсинга
-$pars = pars_func($strFromFile, ",", ["\n"," "]);
+$pars = pars_func($strFromFile, ",", "\n"," ","#");
 
 // Выводим строку после парсинга заменяем \n и пробелы на запятые
 echo 'Выводим строку после парсинга заменяем \n и пробелы на запятые'."<br>$pars<br><hr><br>";
 
 //  Разбивает строку с помощью разделителя в массив
-$arrPars = explode(',',$pars);
+$arrPars = explode(',', $pars);
 
 // Разбивает строку с помощью разделителя в массив
 echo "Выводим разбитую строку с помощью разделителя в массив<br>";
@@ -38,7 +38,12 @@ $arrNum = [];
 // оставляем только числа и приводим к int
 foreach ($arrPars as $index => $parr) {
     if (is_numeric($parr)) {
-        $arrNum[] = (int) $parr;
+
+        // добавить приведение к флоат
+//        if (gettype($parr) === "integer") $arrNum[] = (int) $parr;
+//        if (gettype($parr) === "double")
+            $arrNum[] = (float) $parr;
+
     }
 }
 
