@@ -34,7 +34,7 @@
 
 <!--main content-->
 
-<section main-content>
+<section class="main-content">
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <article id="article-1" class="articles col-xl-8">
@@ -51,18 +51,63 @@
         </div>
     </div>
     /*form*/
-
-    <form name="robo-form" id="form" method="get" enctype="multipart/form-data">
-        <input type="text" name="login" required>
-        <input type="password" name="password" placeholder="Pls enter your password" required>
-        <input type="email" name="email" required><br>
-        <input type="hidden" name="info"><br>
-        <label><input type="checkbox" name="chosen-robot" value="1" checked> Robot 1</label><br>
-        <label><input type="checkbox" name="chosen-robot" value="2"> Robot 2</label><br>
-        <label><input type="checkbox" name="chosen-robot" value="3"> Robot 3</label><br>
-        <label><input type="checkbox" name="chosen-robot" value="4"> Robot 4</label><br>
-        <label><input type="checkbox" name="chosen-robot" value="5"> Robot 5</label><br>
-        <textarea name="comment"></textarea>
-        <input type="submit" value="Send"><br>
-    </form>
+    <div class="robo-form">
+<!--    <form name="robo-form" id="form" method="get" enctype="multipart/form-data">-->
+<!--        <input type="text" name="login" required>-->
+<!--        <input type="password" name="password" placeholder="Pls enter your password" required>-->
+<!--        <input type="email" name="email" required><br>-->
+<!--        <input type="hidden" name="info"><br>-->
+<!--        <label><input type="checkbox" name="chosen-robot" value="1" checked> Robot 1</label><br>-->
+<!--        <label><input type="checkbox" name="chosen-robot" value="2"> Robot 2</label><br>-->
+<!--        <label><input type="checkbox" name="chosen-robot" value="3"> Robot 3</label><br>-->
+<!--        <label><input type="checkbox" name="chosen-robot" value="4"> Robot 4</label><br>-->
+<!--        <label><input type="checkbox" name="chosen-robot" value="5"> Robot 5</label><br>-->
+<!--        <textarea name="comment"></textarea>-->
+<!--        <input type="submit" value="Send"><br>-->
+<!--    </form>-->
+        <form name="robo-form" id="robo-form" method="get" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+            </div>
+            /*checkboxes*/
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="checkbox" aria-label="Checkbox for following text input">
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="checkbox" aria-label="Checkbox for following text input">
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="checkbox" aria-label="Checkbox for following text input">
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
