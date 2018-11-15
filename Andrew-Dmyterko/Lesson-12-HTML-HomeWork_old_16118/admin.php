@@ -5,7 +5,7 @@ require_once './add_bootstrap.php';
 // База данных картинок
 getPicArray();
 // проверяем наличие сессии и обновляем ее
-$es = exists_session();
+$ec = exists_session();
 
 $params = $_POST;
 if (!empty($params)) {
