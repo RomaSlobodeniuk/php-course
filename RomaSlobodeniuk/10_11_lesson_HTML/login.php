@@ -1,7 +1,8 @@
 <?php
 
 require_once './helpers/functions.php';
-require_once './config/config.php';
+
+login();
 
 $fileName = './source/login.json';
 $sourceData = getSourceData($fileName);

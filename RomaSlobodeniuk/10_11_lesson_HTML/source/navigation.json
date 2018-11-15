@@ -12,6 +12,10 @@
     "link_3": {
       "name": "Login",
       "href": "login.php"
+    },
+    "link_4": {
+      "name": "Logout",
+      "href": "logout.php"
     }
   }
 }
