@@ -16,4 +16,4 @@
     </script>
     <![endif]-->
 </head>
-<body class="background">
+<body class="background-img">
