@@ -1,5 +1,5 @@
 /*reset styles*/
-h1, h2, h3, p, span, label {
+h1, h2, h3, h4, h5, h6, p, span, label {
     color: #ffffff;
 }
 
@@ -54,15 +54,20 @@ a.nav-link:hover {
 /*content*/
 .main-content {
     padding: 20px;
+    padding-bottom: 0;
+}
+
+div.jumbotron {
+    padding-bottom: 0;
 }
 
 .article-head {
     color: #b9bbbe;
 }
 
-.jumbotron, .robo-form {
+.main-content .jumbotron, .robo-form {
     background-color: transparent;
-    float: left;
+    margin-left: 0;
     width: 60%;
 }
 
@@ -77,4 +82,71 @@ a.nav-link:hover {
     background-color: #1d2124;
     color: #ffffff;
     border-color: #b9bbbe;
+}
+
+/*cards*/
+#cards {
+    margin-left: 20px;
+    padding-bottom: 20px;
+}
+
+#cards .card {
+    background-color: transparent;
+}
+
+/*form*/
+
+#robo-form {
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+/*checkboxes in content*/
+.checkboxes-robots-label {
+    display: block;
+    margin-top: 20px;
+}
+
+.checkboxes-robots-label {
+    color: #ffffff;
+}
+
+.checkbox-label {
+    font-size: 0.53em;
+    color: #000000;
+}
+
+/*footer*/
+.jumbotron {
+    background-color: transparent;
+}
+
+div#footer {
+    width: 100%;
+    background: linear-gradient(to top, #000000, transparent);
+    margin-bottom: 0;
+}
+
+.footer-jumbotron div.container {
+    max-width: 100%;
+}
+
+.footer-jumbotron .list-group-item {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px dashed #b9bbbe;
+    color: #ffffff;
+}
+
+.footer-jumbotron .list-group-item a {
+    color: #82b5d4;
+    text-decoration: none;
+}
+
+.footer-jumbotron .list-group-item a:hover {
+    color: #ffffff;
+}
+
+footer h4 {
+    color: #b9bbbe;
 }
