@@ -1,7 +1,6 @@
 <?php
 
 require_once './helpers/functions.php';
-require_once './config/config.php';
 
 $fileName = './source/index.json';
 $sourceData = getSourceData($fileName);
