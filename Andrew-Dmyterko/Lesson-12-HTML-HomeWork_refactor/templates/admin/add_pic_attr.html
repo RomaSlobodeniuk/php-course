@@ -1,0 +1,13 @@
+<img src={{name}} alt=\"альтернативный текст\">
+
+<!--Фома добавления картинки ввод атребутов -->
+<div class="jumbotron">
+    <form name="form" method="post" class="col-sm-6" enctype="multipart/form-data" action="">
+        <input type="text" name="name" class="form-control" required placeholder="Имя оружия">
+        <input type="hidden" name="src" value={{name}}">
+        <textarea name="text" required class="form-control" placeholder="Описание оружия"></textarea>
+        <input type="text" name="url" class="form-control" size="100" required placeholder="Ссылка URL">
+        <!--            <input type="hidden" name="my_dir" value="--><?php //echo $uploaddir;?><!--">-->
+        <button type="submit" class="btn btn-primary">В базу</button>
+    </form>
+</div>

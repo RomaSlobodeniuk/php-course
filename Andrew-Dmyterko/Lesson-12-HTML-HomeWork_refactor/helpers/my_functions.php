@@ -224,7 +224,9 @@ function exists_session() {
             unset($sessions[$key]);
             sessionWrite();
             // не делать редирект сам на себя
-            if (basename(($_SERVER['SCRIPT_FILENAME']))<>"index.php") header("Location:index.php");
+            if (basename(($_SERVER['SCRIPT_FILENAME']))!="index.php") {
+                header("Location:index.php");
+            }
         }
     }
     return $exists;
@@ -361,4 +363,53 @@ function getActionForm ($user_id) {
     $actionTemplate = str_replace('{{PARSER_MY_checked}}', (($config['PARSER']==="MY") ? "checked" : ""), $actionTemplate);
 
     return $actionTemplate;
+}
+
+// получаем шаблон add_changes
+function getAddChangesForm ($number_pic) {
+
+    global $pictures;
+    global $config;
+
+    $fileActionTemplate = ADMIN_ADD_CHANGES_TEMPLATE_PATH;
+    $actionTemplate = getSourceContent($fileActionTemplate);
+    $actionTemplate = str_replace('{{src}}', $pictures[$number_pic]['src'], $actionTemplate);
+    $actionTemplate = str_replace('{{name}}', $pictures[$number_pic]['name'], $actionTemplate);
+    $actionTemplate = str_replace('{{text}}', $pictures[$number_pic]['text'], $actionTemplate);
+    $actionTemplate = str_replace('{{url}}', $pictures[$number_pic]['url'], $actionTemplate);
+    $actionTemplate = str_replace('{{number_pic}}', $number_pic, $actionTemplate);
+
+    return $actionTemplate;
+}
+
+// получаем основной контент, берем шаблон main.html,main1.html и меняем на данные из $data
+function getForChangesContent($data) {
+    $mainFileName = ADMIN_VIEW_FOR_CHANGES_TEMPLATE_PATH;
+    $contentFileName = ADMIN_VIEW_FOR_CHANGES_CONTENT_TEMPLATE_PATH;
+    $contentTemplate = "";
+    $forChangesTemplate = getSourceContent($mainFileName);
+
+    if (!empty($data)){
+        foreach ($data as $index => $picture){
+            $contentTemplate = $contentTemplate.getSourceContent($contentFileName);
+            $contentTemplate = str_replace('{{src}}', $picture['src'], $contentTemplate);
+            $contentTemplate = str_replace('{{name}}', $picture['name'], $contentTemplate);
+            $contentTemplate = str_replace('{{text}}', $picture['text'], $contentTemplate);
+            $contentTemplate = str_replace('{{url}}', $picture['url'], $contentTemplate);
+            $contentTemplate = str_replace('{{index}}', $index, $contentTemplate);
+        }
+    }
+
+    $forChangesTemplate = str_replace('{{view_for_changes1}}', $contentTemplate, $forChangesTemplate);
+
+    return $forChangesTemplate;
+}
+
+// получаем шаблон add_pic_attr
+function getAddPicAttr($data) {
+    $fileName = ADMIN_ADD_PIC_ATTR_TEMPLATE_PATH;
+    $addPicAttrTemplate = getSourceContent($fileName);
+    $addPicAttrTemplate = str_replace('{{name}}', "weapon_img/" . $data['userfile']['name'], $addPicAttrTemplate);
+
+    return $addPicAttrTemplate;
 }

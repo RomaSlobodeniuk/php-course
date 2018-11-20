@@ -1,0 +1,17 @@
+<!--Выводим для изменения в цикле все оружие -->
+    <div class="card col-sm-2" style="width: 18rem;background-color: #e9ecef">
+        <img class="card-img-top" src="{{src}}"
+             title="{{name}}" alt="black-humor">
+        <div class="card-body">
+            <h5 class="card-title"><u>{{name}}</u></h5>
+            <p class="card-text">{{text}}</p>
+            <form name="form2" enctype="multipart/form-data" action="./admin.php" method="post">
+                <input type="hidden" name="change_pic" value="change_pic">
+                <input type="hidden" name="number_pic" value="{{index}}">
+                <input name="delete_pic" type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Удалить картинку</label>
+                <input type="submit" class="btn btn-primary" value="Изменить">
+            </form>
+            <!--                        <a href="-->
+        </div>
+    </div>

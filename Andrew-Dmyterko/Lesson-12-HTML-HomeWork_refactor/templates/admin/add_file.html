@@ -1,0 +1,14 @@
+<!--Форма добавления картинки ввод картинки -->
+<div class="jumbotron">
+    <p class="lead"><b>Выберите картинку и загрузите на сервер</b></p>
+<!-- Тип кодирования данных, enctype, ДОЛЖЕН БЫТЬ указан ИМЕННО так -->
+    <form name="form" enctype="multipart/form-data" action="" method="post">
+        <!-- Поле MAX_FILE_SIZE должно быть указано до поля загрузки файла -->
+        <input type="hidden" name="MAX_FILE_SIZE" value="30000">
+        <!-- Название элемента input определяет имя в массиве $_FILES -->
+        Отправить этот файл: <input name="userfile" class="form-control-file" type="file">
+        <br>
+        <input type="submit" class="btn btn-primary" value="Отправить файл">
+        <a class="btn btn-primary" href="./index.php" role="button">Вернуться на центральную страницу</a>
+    </form>
+</div>

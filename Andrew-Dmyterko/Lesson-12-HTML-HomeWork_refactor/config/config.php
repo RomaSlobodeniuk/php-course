@@ -24,8 +24,22 @@ define('ALERT_TEMPLATE_PATH'        , './templates/alert/alert.html');
 // путь к файлу шаблона кнопки назад
 define('TEMPLATE_BUTTON_RETURN'                 , './templates/button/return.html');
 
-// путь к файлу данных для index.php
+// путь к файлу данных для action.php
 define('ACTION_SOURCE_PATH'                     , './page_source/action.json');
+
+// путь к файлу данных для admin.php
+define('ADMIN_SOURCE_PATH'                     , './page_source/admin.json');
+// путь к шаблону add_file для admin.php
+define('ADMIN_ADD_FILE_TEMPLATE_PATH'                      , './templates/admin/add_file.html');
+// путь к шаблону add_changes для admin.php
+define('ADMIN_ADD_CHANGES_TEMPLATE_PATH'                   , './templates/admin/add_changes.html');
+// путь к шаблону view_for_changes для admin.php
+define('ADMIN_VIEW_FOR_CHANGES_TEMPLATE_PATH'              , './templates/admin/view_for_changes.html');
+// путь к шаблону view_for_changes content для admin.php
+define('ADMIN_VIEW_FOR_CHANGES_CONTENT_TEMPLATE_PATH'      , './templates/admin/view_for_changes1.html');
+// путь к шаблону add_pic_attr для admin.php
+define('ADMIN_ADD_PIC_ATTR_TEMPLATE_PATH'                   , './templates/admin/add_pic_attr.html');
+
 
 // путь к файлу шаблона action
 define('ACTION_TEMPLATE_PATH'                   , './templates/action/action_main_form.html');

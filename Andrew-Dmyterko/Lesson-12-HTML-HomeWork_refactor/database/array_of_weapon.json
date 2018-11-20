@@ -8,7 +8,7 @@
     {
         "name": "Sturmgewehr 44",
         "src": "weapon_img\/weapon9.jpeg",
-        "text": "Text 9 goes here",
+        "text": "Text 9 goes wwwwwww",
         "url": "https:\/\/ru.wikipedia.org\/wiki\/StG_44"
     },
     {
@@ -34,5 +34,11 @@
         "src": "weapon_img\/images.jpeg",
         "text": "\u0442\u0430\u043d\u043a",
         "url": "\u0442\u0430\u043d\u043a"
+    },
+    {
+        "name": "wolf333",
+        "src": "weapon_img\/wolf.png\"",
+        "text": "wolf333",
+        "url": "wolf333"
     }
 ]

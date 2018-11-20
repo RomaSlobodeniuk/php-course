@@ -8,6 +8,9 @@
 
 require_once './helpers/my_functions.php';
 
+// проверяем наличие сессии и обновляем ее
+$es = exists_session();
+
 // база данных для action.php
 $fileName = ACTION_SOURCE_PATH;
 $sourceData = getSourceData($fileName);
@@ -25,15 +28,12 @@ if (!empty($params)) {
 // База данных пользователей
 getUsersArray();   //var_dump($users);
 
-// проверяем наличие сессии и обновляем ее
-$es = exists_session();
-
 //<!-- если нажата кнопка меняем парсер -->
-if (!empty($params['Parser'])){
+if ($es['user_id']>=0 && !empty($params['Parser'])){
     changeParser($params['Parser'], $params['session_time']);
 }
 
-if (!empty($params) && empty($params["active_session"])) {
+if ($es['user_id']=-1 && !empty($params) && empty($params["active_session"])) {
     $error=0;
     if ($params['passwd']!==$params['passwd_confirm']) {
         $error++;
@@ -63,7 +63,7 @@ if (!empty($params) && empty($params["active_session"])) {
     }
 }
 
-if (!empty($params) && (isset($params["active_session"]))) {
+if ($es['user_id']>=0 && !empty($params) && (isset($params["active_session"]))) {
     $es = exists_session();
 
     $action_main_form_after_session = getActionForm($es['user_id']);
