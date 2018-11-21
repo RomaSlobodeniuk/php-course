@@ -254,14 +254,14 @@ function getSourceContent($fileName) {
 }
 
 // получаем заголовок, берем шаблон header и меняем на данные из $data
-function getHeader($data) {
+function getHeader($data, $session_data) {
     $fileName = TEMPLATE_HEADER_PATH;
     $header = getSourceContent($fileName);
     $header = str_replace('{{title}}', $data['title'], $header);
     $header = str_replace('{{page_icon}}', $data['page_icon'], $header);
 
-//    $navigation = getNavigation();
-//    $header = str_replace('{{navigation}}', $navigation, $header);
+    $navigation = getNavigation($session_data);
+    $header = str_replace('{{navigation}}', $navigation, $header);
     return $header;
 }
 
@@ -412,4 +412,76 @@ function getAddPicAttr($data) {
     $addPicAttrTemplate = str_replace('{{name}}', "weapon_img/" . $data['userfile']['name'], $addPicAttrTemplate);
 
     return $addPicAttrTemplate;
+}
+
+function getNavigation($session_data) {
+    $navigationFileName = './page_source/navigation.json';
+    $navigationData = getSourceData($navigationFileName);
+    if (empty($navigationData)) {
+        return '';
+    }
+
+    $navigationTemplateName = './templates/header/navigation.html';
+    $navigationTemplate = getSourceContent($navigationTemplateName);
+    $navigationTemplate = str_replace('{{logo_title}}', $navigationData['logo_title'], $navigationTemplate);
+    $userEmail = ($session_data['user_id'] !== -1) ? $session_data['user_name'] : '';
+    $navigationTemplate = str_replace('{{user_email}}', $userEmail, $navigationTemplate);
+
+    $linksFileName = './templates/header/links.html';
+    $linksTemplateHtml = getSourceContent($linksFileName);
+    $linksHtml = '';
+    $links = $navigationData['links'];
+    $isLoggedIn = ($session_data['user_id'] === -1) ? false : true;
+    foreach ($links as $key => $link) {
+        if ($isLoggedIn && $key === 'link_3') {
+            continue;
+        }
+
+        if (!$isLoggedIn && $key === 'link_4') {
+            continue;
+        }
+
+        if (!$isLoggedIn && $key === 'link_5') {
+            continue;
+        }
+
+        $linksTemplate = $linksTemplateHtml;
+        $linksTemplate = str_replace('{{name}}', $link['name'], $linksTemplate);
+        $linksTemplate = str_replace('{{href}}', $link['href'], $linksTemplate);
+        $linksHtml .= $linksTemplate;
+    }
+
+    $navigationTemplate = str_replace('{{links}}', $linksHtml, $navigationTemplate);
+    $navigationTemplate = str_replace('{{user_email}}', $userEmail, $navigationTemplate);
+
+    return $navigationTemplate;
+}
+
+// разлогиниваемся удаляем сессию
+function logout() {
+
+    getFormConfig();
+
+    $file = USERS_SESSION_PATH;
+//    $exists = ['user_id' => -1];
+
+    global $sessions;
+    global $config;
+
+    $sessions=json_decode(file_get_contents($file), true);
+
+    // проверяем наличие зарегистрированной сессии
+    foreach ($sessions as $key => $val) {
+
+        // находим сессии и unset
+        if ($val['user_session_id'] == session_id()) {
+            unset($sessions[$key]);
+            sessionWrite();
+            // не делать редирект сам на себя
+            if (basename(($_SERVER['SCRIPT_FILENAME']))!="index.php") {
+                header("Location:index.php");
+            }
+        }
+    }
+    return ;
 }

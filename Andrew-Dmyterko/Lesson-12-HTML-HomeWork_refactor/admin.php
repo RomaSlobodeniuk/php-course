@@ -9,7 +9,7 @@ $fileName = ADMIN_SOURCE_PATH;
 $sourceData = getSourceData($fileName);
 
 // выводим заголовок
-$header = getHeader($sourceData);
+$header = getHeader($sourceData, $es);
 echo $header;
 
 // База данных картинок
@@ -21,7 +21,7 @@ if ($es['user_id'] >= 0 && !empty($params)) {
 //    print_r($params);
 //    print_r($_FILES);
 
-    if ($es['user_id']>=0 && !empty($_FILES['userfile']['name'])):
+    if ($es['user_id']>=0 && !empty($_FILES['userfile']['name'])){
 
         $uploaddir = USERS_PIC_PATH;
         $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
@@ -35,27 +35,7 @@ if ($es['user_id'] >= 0 && !empty($params)) {
         $addPicAttrContent = getAddPicAttr($_FILES);
         echo $addPicAttrContent;
 
-////    print_r($_FILES);
-//
-//        echo "<img src=\"weapon_img/" . $_FILES['userfile']['name'] . "\" alt=\"альтернативный текст\">";
-//        ?>
-<!---->
-<!--        <!--Форма добавления картинки ввод атребутов -->-->
-<!--        <div class="jumbotron">-->
-<!--            <form name="form" method="post" class="col-sm-6" enctype="multipart/form-data" action="">-->
-<!--                <input type="text" name="name" class="form-control" required placeholder="Имя оружия">-->
-<!--                <input type="hidden" name="src" value="--><?php //echo "weapon_img/" . $_FILES['userfile']['name']; ?><!--">-->
-<!--                <textarea name="text" required class="form-control" placeholder="Описание оружия"></textarea>-->
-<!--                <input type="text" name="url" class="form-control" size="100" required placeholder="Ссылка URL">-->
-<!--                <!--            <input type="hidden" name="my_dir" value="-->--><?php ////echo $uploaddir;?><!--<!--">-->-->
-<!--                <button type="submit" class="btn btn-primary">В базу</button>-->
-<!--            </form>-->
-<!--        </div>-->
-
-
-    <?php
-    endif;
-
+    }
 
 //    нажата кнопка изменить данные
     if ($es['user_id']>=0 && !empty($_POST['change'])) {
@@ -106,6 +86,7 @@ if ($es['user_id'] >= 0 && !empty($params)) {
     }
 
 
-
-
+// выводим футер
+$footer = getFooter($sourceData);
+echo $footer;
 

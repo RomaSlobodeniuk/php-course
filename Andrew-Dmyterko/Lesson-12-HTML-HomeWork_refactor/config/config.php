@@ -54,9 +54,9 @@ define('INDEX_TEMPLATE_MAIN_PATH'               , './templates/index/main.html')
 // путь к файлу шаблона контента main для index.php
 define('INDEX_TEMPLATE_CONTENT_PATH'            , './templates/index/main1.html');
 // путь к файлу шаблона контента login формы для index.php
-define('INDEX_TEMPLATE_LOGIN_FORM_PATH'         , './templates/index/login_form.html');
+define('INDEX_TEMPLATE_LOGIN_FORM_PATH'         , './templates/login/login_form.html');
 // путь к файлу шаблона контента exists_user формы для index.php
-define('INDEX_TEMPLATE_EXISTS_USER_FORM_PATH'   , './templates/index/exists_user_form.html');
+define('INDEX_TEMPLATE_EXISTS_USER_FORM_PATH'   , './templates/login/exists_user_form.html');
 
 
 

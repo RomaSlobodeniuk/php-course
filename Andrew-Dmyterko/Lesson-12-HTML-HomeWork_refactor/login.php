@@ -20,17 +20,9 @@ $sourceData = getSourceData($fileName);
 $header = getHeader($sourceData, $es);
 echo $header;
 
-// выводим приветствие
-$welcomeContent = getWelcomeContent($sourceData);
-echo $welcomeContent;
-
-// выводим основное содержимое
-$mainContent = getMainContent($pictures);
-echo $mainContent;
-
 // выводим логин форму
-//$login = getLoginForm($es);
-//echo $login;
+$login = getLoginForm($es);
+echo $login;
 
 // выводим футер
 $footer = getFooter($sourceData);

@@ -15,9 +15,11 @@ $es = exists_session();
 $fileName = ACTION_SOURCE_PATH;
 $sourceData = getSourceData($fileName);
 
-// выводим заголовок
-$header = getHeader($sourceData);
-echo $header;
+if ($es['user_id'] !== -1) {
+    // выводим заголовок
+    $header = getHeader($sourceData, $es);
+    echo $header;
+}
 
 $params = $_POST;
 if (!empty($params)) {
@@ -49,6 +51,13 @@ if ($es['user_id']=-1 && !empty($params) && empty($params["active_session"])) {
                 new_session(pass($params['email'], $params['passwd'], $users), $params['email'], $users[pass($params['email'], $params['passwd'], $users)]['name']);
 
         $user_id = pass($params['email'], $params['passwd'], $users);
+
+        // проверяем наличие сессии и обновляем ее
+        $es = exists_session();
+        // выводим заголовок
+        $header = getHeader($sourceData, $es);
+        echo $header;
+
         $action_main_form = getActionForm($user_id);
         echo $action_main_form;
 
@@ -64,6 +73,13 @@ if ($es['user_id']=-1 && !empty($params) && empty($params["active_session"])) {
 }
 
 if ($es['user_id']>=0 && !empty($params) && (isset($params["active_session"]))) {
+    $es = exists_session();
+
+    $action_main_form_after_session = getActionForm($es['user_id']);
+    echo $action_main_form_after_session;
+}
+
+if ($es['user_id']>=0 && empty($params)) {
     $es = exists_session();
 
     $action_main_form_after_session = getActionForm($es['user_id']);
