@@ -445,6 +445,10 @@ function getNavigation($session_data) {
             continue;
         }
 
+        if (!$isLoggedIn && $key === 'link_2') {
+            continue;
+        }
+
         $linksTemplate = $linksTemplateHtml;
         $linksTemplate = str_replace('{{name}}', $link['name'], $linksTemplate);
         $linksTemplate = str_replace('{{href}}', $link['href'], $linksTemplate);
@@ -484,4 +488,34 @@ function logout() {
         }
     }
     return ;
+}
+
+// получаем слайдер
+function getSlider() {
+
+    $photoDir = PHOTO_PATH;
+    $mainFileName = PHOTO_TEMPLATE_PATH;
+    $contentFileName = PHOTO_ITEM_TEMPLATE_PATH;
+    $contentTemplate = "";
+    $picTemplate = getSourceContent($mainFileName);
+
+    $files = scandir($photoDir);
+
+    $i=0;
+    foreach ($files as $index => $file) {
+
+        if (!is_dir($file)) {
+            $contentTemplate = $contentTemplate . getSourceContent($contentFileName);
+            $contentTemplate = str_replace('{{active}}', ($i==0) ? "active" : "", $contentTemplate);
+            $contentTemplate = str_replace('{{src_pic}}', $photoDir.$file, $contentTemplate);
+            $contentTemplate = str_replace('{{alt_pic}}', $photoDir.$file, $contentTemplate);
+            $i++;
+        }
+    }
+
+
+    $picTemplate = str_replace('{{pic_item}}', $contentTemplate, $picTemplate);
+
+    return $picTemplate;
+
 }

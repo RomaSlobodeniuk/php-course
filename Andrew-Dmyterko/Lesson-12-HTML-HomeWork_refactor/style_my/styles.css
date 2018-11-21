@@ -18,3 +18,9 @@
 .white {
     color: inherit;
 }
+
+.carousel .item {
+
+    text-align: center !important;
+
+}

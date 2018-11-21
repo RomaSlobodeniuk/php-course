@@ -15,11 +15,15 @@ $es = exists_session();
 $fileName = ACTION_SOURCE_PATH;
 $sourceData = getSourceData($fileName);
 
-if ($es['user_id'] !== -1) {
-    // выводим заголовок
-    $header = getHeader($sourceData, $es);
-    echo $header;
-}
+// выводим заголовок
+$header = getHeader($sourceData, $es);
+echo $header;
+
+//if ($es['user_id'] !== -1) {
+//    // выводим заголовок
+//    $header = getHeader($sourceData, $es);
+//    echo $header;
+//}
 
 $params = $_POST;
 if (!empty($params)) {

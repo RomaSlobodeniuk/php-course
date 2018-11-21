@@ -59,6 +59,19 @@ define('INDEX_TEMPLATE_LOGIN_FORM_PATH'         , './templates/login/login_form.
 define('INDEX_TEMPLATE_EXISTS_USER_FORM_PATH'   , './templates/login/exists_user_form.html');
 
 
+// путь к файлам фотографий для photo.php
+define('PHOTO_PATH'   , './photo_my/');
+
+// путь к файлу данных для photo.php
+define('PHOTO_SOURCE_PATH'                      , './page_source/photo.json');
+
+// путь к файлу данных для photo.php
+define('LOGIN_SOURCE_PATH'                      , './page_source/login.json');
+
+// путь к файлу шаблона карусели  формы для photo.php
+define('PHOTO_TEMPLATE_PATH'               , './templates/photo/photo.html');
+// путь к файлу шаблона контента photo_item для photo.php
+define('PHOTO_ITEM_TEMPLATE_PATH'            , './templates/photo/photo_item.html');
 
 
 

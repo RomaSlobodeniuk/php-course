@@ -13,7 +13,7 @@ getPicArray(); // добавляем массив картинок
 $es = exists_session();
 
 // база данных для index.php
-$fileName = INDEX_SOURCE_PATH;
+$fileName = LOGIN_SOURCE_PATH;
 $sourceData = getSourceData($fileName);
 
 // выводим заголовок
