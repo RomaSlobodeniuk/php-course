@@ -91,7 +91,11 @@ div.jumbotron {
 }
 
 #cards .card {
-    background-color: transparent;
+    background-color: rgba(27,26,27,.925);
+}
+
+.card {
+    border: 1px solid rgba(184,185,189,.125);
 }
 
 /*form*/
@@ -101,19 +105,12 @@ div.jumbotron {
     margin-left: 20px;
 }
 
-/*checkboxes in content*/
-.checkboxes-robots-label {
-    display: block;
-    margin-top: 20px;
+.uploads {
+    margin-top: 1.5em;
 }
 
-.checkboxes-robots-label {
-    color: #ffffff;
-}
-
-.checkbox-label {
-    font-size: 0.53em;
-    color: #000000;
+.btn-primary {
+    margin-top: 1.5em;
 }
 
 /*footer*/
