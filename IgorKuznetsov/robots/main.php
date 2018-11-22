@@ -36,10 +36,10 @@
 
 <section class="main-content">
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <article id="article-1" class="articles col-md-8">
-                <h3 class="display-4 article-head">Robot name</h3>
-                <img src="img/robo1.gif" class="robo-img" alt="Robot" title="Robot" width="600" height="500"><br>
+        <div class="container row">
+            <article id="article-1" class="articles col-lg-10 row">
+                <h3 class="display-4 article-head">War machine 03</h3>
+                <img src="img/robo1.gif" class="robo-img col-md-10" alt="Robot" title="Robot" width="600" height="500"><br>
                 <a href="#" target="_blank" class="tec-char-link">Technical characteristics</a><br>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Cumque magnam odit quo? Architecto aspernatur assumenda consectetur consequatur cum eius fuga ipsam
@@ -80,19 +80,19 @@
         <div class="form-group row">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Type your email" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword1" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="inputPassword1" placeholder="Password" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword2" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword2" placeholder="Confirm your password">
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Confirm your password" required>
             </div>
         </div>
 
