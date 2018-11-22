@@ -1,10 +1,19 @@
 <?php
 
-$params = $_GET;
+require_once './func/functions.php';
+
+$fileName = 'sources/index.json';
+$sourceData = getSourceData($fileName);
+
+/*$params = $_GET;
 
 if (!empty($params)) {
     print_r($params);
-}
+}*/
+
+$mainSlider = getSliderContent($sourceData);
+
+echo $mainSlider;
 
 $images = [
     [

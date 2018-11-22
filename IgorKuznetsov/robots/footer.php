@@ -14,7 +14,7 @@
                     </ul>
                 </div>
             </div>
-            <?php endfor; ?>
+            <?php endfor;?>
                 <h4>&copy; All robot rights are protected by three laws of robotics by Isaac Azimov</h4>
         </div>
     </div>
