@@ -1,0 +1,47 @@
+{
+  "title": "Robots is our future",
+  "description": "Robots are awesome. Humans are okey",
+  "page content": {
+    "slider": {
+     "link_1": {
+       "src": "1.jpg?auto=yes&bg=777&fg=555&text=First slide",
+       "alt": "First slide"
+     },
+     "link_1": {
+       "src": "2.jpg?auto=yes&bg=777&fg=555&text=Second slide",
+       "alt": "Second slide"
+     },
+     "link_1": {
+       "src": "3.jpg?auto=yes&bg=777&fg=555&text=Third slide",
+       "alt": "Third slide"
+     },
+     "link_1": {
+       "src": "4.jpg?auto=yes&bg=777&fg=555&text=Fourth slide",
+       "alt": "Fourth slide"
+     },
+     "link_1": {
+       "src": "5.jpg?auto=yes&bg=777&fg=555&text=Fifth slide",
+       "alt": "Fifth slide"
+     },
+     "link_1": {
+       "src": "6.jpg?auto=yes&bg=777&fg=555&text=Sixth slide",
+       "alt": "Sixth slide"
+     },
+     "link_1": {
+       "src": "7.jpg?auto=yes&bg=777&fg=555&text=Seventh slide",
+       "alt": "Seventh slide"
+     },
+     "link_1": {
+       "src": "8.jpg?auto=yes&bg=777&fg=555&text=Eighth slide",
+       "alt": "First slide"
+     },
+     "link_1": {
+       "src": "9.jpg?auto=yes&bg=777&fg=555&text=Ninth slide",
+       "alt": "Ninth slide"
+     }
+    }
+  },
+  "footer": {
+    "heading": "© All robot rights are protected by three laws of robotics by Isaac Azimov"
+  }
+}

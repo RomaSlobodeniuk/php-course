@@ -16,4 +16,8 @@
     </script>
     <![endif]-->
 </head>
+<<<<<<< HEAD
 <body class="background">
+=======
+<body class="background-img">
+>>>>>>> 1db4c7d2c4e66b91eb35f1e48785cdff8f319899
