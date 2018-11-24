@@ -1,26 +1,12 @@
 <?php
 
-<<<<<<< HEAD
+
 $params = $_GET;
 
 if (!empty($params)) {
     print_r($params);
 }
-=======
-require_once './func/functions.php';
 
-$fileName = 'sources/index.json';
-$sourceData = getSourceData($fileName);
-
-/*$params = $_GET;
-
-if (!empty($params)) {
-    print_r($params);
-}*/
-
-$mainSlider = getSliderContent($sourceData);
-
-echo $mainSlider;
 
 $images = [
     [
@@ -54,8 +40,6 @@ $images = [
         'description' => 'Some robot 6. Some quick example text to build on the card title and make up the bulk of the card\'s content.'
     ]
 ];
-
->>>>>>> 1db4c7d2c4e66b91eb35f1e48785cdff8f319899
 
 require_once ('header.php');
 require_once ('main.php');
