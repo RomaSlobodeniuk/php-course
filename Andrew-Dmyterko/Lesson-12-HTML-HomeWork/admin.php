@@ -80,7 +80,7 @@ END;
                     <div class="card-body">
                         <h5 class="card-title"><u><?php echo $picture['name'] ?></u></h5>
                         <p class="card-text"><?php echo $picture['text'] ?></p>
-                        <form name="form2" enctype="multipart/form-data" action="./admin.php" method="post">
+                        <form name="form2" enctype="multipart/form-data" action="admin.php" method="post">
                             <input type="hidden" name="change_pic" value="change_pic">
                             <input type="hidden" name="number_pic" value="<?php echo $index ?>">
                             <input type="submit" class="btn btn-primary" value="Изменить">
@@ -189,7 +189,7 @@ END;
         Отправить этот файл: <input name="userfile" class="form-control-file" type="file">
         <br>
         <input type="submit" class="btn btn-primary" value="Отправить файл">
-        <a class="btn btn-primary" href="./index.php" role="button">Вернуться на центральную страницу</a>
+        <a class="btn btn-primary" href="index.php" role="button">Вернуться на центральную страницу</a>
     </form>
 </div>
 

@@ -1,6 +1,19 @@
 <?php
 require_once '../helpers/functions.php';
+require_once '../config/config.php';
 
+$fileName = '../source/index.json';
+$sourceData = getSourceData($fileName);
+
+$header = getHeader($sourceData);
+$mainContent = getMainContent($sourceData, 'index');
+$footer = getFooter($sourceData);
+
+echo $header;
+echo $mainContent;
+echo $footer;
+
+/**
 $params = $_POST;
 
 if (!empty($params['email'])) {
@@ -36,5 +49,6 @@ $pictures = [
 require_once './header.php';
 require_once './main.php';
 require_once './footer.php';
+**/
 
 

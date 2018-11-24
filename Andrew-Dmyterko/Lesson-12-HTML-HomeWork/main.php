@@ -40,7 +40,7 @@
         <a name="login"></a>
         <p class="lead"><em>Please enter your login and password to enter the secret area</em></p>
         <div class="row justify-left-left">
-            <form class="col-sm-6" id="main-form" name="form" method="post" enctype="multipart/form-data" action="./action.php">
+            <form class="col-sm-6" id="main-form" name="form" method="post" enctype="multipart/form-data" action="action.php">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
