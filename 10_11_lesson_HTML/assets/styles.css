@@ -10,6 +10,7 @@
 .red {
     color: red !important;
 }
+<<<<<<< HEAD:assets/styles.css
 .container{
     max-width: 1170px;
     margin: 0 auto;
@@ -22,6 +23,8 @@ body {
     padding-top: 200px;
     min-height: 100vh
 }
+=======
+>>>>>>> 40ca40599f9695bb6ce9df1db019adbc54df9fee:10_11_lesson_HTML/assets/styles.css
 
 #article-1 {
     color: white;
