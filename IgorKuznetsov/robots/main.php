@@ -42,7 +42,7 @@
         <div class="container row">
             <article id="article-1" class="articles col-lg-10 row">
                 <h3 class="display-4 article-head">War machine 03</h3>
-                <img src="img/robo1.gif" class="robo-img col-md-10" alt="Robot" title="Robot" width="600" height="500"><br>
+                <img src="assets/img/robo1.gif" class="robo-img col-md-10" alt="Robot" title="Robot" width="600" height="500"><br>
                 <a href="#" target="_blank" class="tec-char-link">Technical characteristics</a><br>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Cumque magnam odit quo? Architecto aspernatur assumenda consectetur consequatur cum eius fuga ipsam
