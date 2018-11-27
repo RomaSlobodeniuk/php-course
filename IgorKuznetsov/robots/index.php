@@ -1,11 +1,11 @@
 <?php
 
 
-$params = $_GET;
-
-if (!empty($params)) {
-    print_r($params);
-}
+//$params = $_GET;
+//
+//if (!empty($params)) {
+//    print_r($params);
+//}
 
 
 $images = [
