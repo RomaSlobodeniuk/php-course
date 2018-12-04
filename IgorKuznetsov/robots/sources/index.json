@@ -1,0 +1,79 @@
+{
+  "title": "Robots is our future",
+  "description": "Robots are awesome. Humans are okey",
+  "page content": {
+    "slider": {
+       "link_1": {
+         "src": "1.jpg?auto=yes&bg=777&fg=555&text=First slide",
+         "alt": "First slide"
+       },
+       "link_1": {
+         "src": "2.jpg?auto=yes&bg=777&fg=555&text=Second slide",
+         "alt": "Second slide"
+       },
+       "link_1": {
+         "src": "3.jpg?auto=yes&bg=777&fg=555&text=Third slide",
+         "alt": "Third slide"
+       },
+       "link_1": {
+         "src": "4.jpg?auto=yes&bg=777&fg=555&text=Fourth slide",
+         "alt": "Fourth slide"
+       },
+       "link_1": {
+         "src": "5.jpg?auto=yes&bg=777&fg=555&text=Fifth slide",
+         "alt": "Fifth slide"
+       },
+       "link_1": {
+         "src": "6.jpg?auto=yes&bg=777&fg=555&text=Sixth slide",
+         "alt": "Sixth slide"
+       },
+       "link_1": {
+         "src": "7.jpg?auto=yes&bg=777&fg=555&text=Seventh slide",
+         "alt": "Seventh slide"
+       },
+       "link_1": {
+         "src": "8.jpg?auto=yes&bg=777&fg=555&text=Eighth slide",
+         "alt": "First slide"
+       },
+       "link_1": {
+         "src": "9.jpg?auto=yes&bg=777&fg=555&text=Ninth slide",
+         "alt": "Ninth slide"
+       }
+    }
+  },
+  "images": [
+    {
+      "name": "robotoy retro",
+      "src": "img/00387_robotoy_retro_thumb_alpha.png",
+      "description": "Some robot 1. Some quick example text to build on the card title and make up the bulk of the card`s content."
+    },
+    {
+      "name": "looksee retro",
+      "src": "img/00417_looksee_retro_thumb_alpha.png",
+      "description": "Some robot 2. Some quick example text to build on the card title and make up the bulk of the card's content."
+    },
+    {
+      "name": "retro daddy",
+      "src": "img/00428_retro_daddy_thumb_alpha.png",
+      "description": "Some robot 3. Some quick example text to build on the card title and make up the bulk of the card's content."
+    },
+    {
+      "name": "retro pups",
+      "src": "img/00451_retro_pups_thumb_alpha.png",
+      "description": "Some robot 4. Some quick example text to build on the card title and make up the bulk of the card's content."
+    },
+    {
+      "name": "retro pirate",
+      "src": "img/00456_retro_pirate_thumb_alpha.png",
+      "description": "Some robot 5. Some quick example text to build on the card title and make up the bulk of the card's content."
+    },
+    {
+      "name": "cheburashka",
+      "src": "img/00465_cheburashka_thumb_alpha.png",
+      "description": "Some robot 6. Some quick example text to build on the card title and make up the bulk of the card's content."
+    }
+  ],
+  "footer": {
+    "heading": "© All robot rights are protected by three laws of robotics by Isaac Azimov"
+  }
+}
