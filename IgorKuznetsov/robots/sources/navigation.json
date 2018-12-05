@@ -1,0 +1,29 @@
+{
+  "logo_title": "Robots are awesome. Humans are okey",
+  "links": {
+    "link_1": {
+      "name": "Home",
+      "href": "index.php"
+    },
+    "link_2": {
+    "name": "Profile",
+    "href": "profile.php"
+    },
+    "link_3": {
+      "name": "Masseges",
+      "href": "masseges.php"
+    },
+    "link_4": {
+      "name": "Settings",
+      "href": "settings.php"
+    },
+    "link_5": {
+      "name": "Login",
+      "href": "login.php"
+    },
+    "link_6": {
+      "name": "Logout",
+      "href": "logout.php"
+    }
+  }
+}
