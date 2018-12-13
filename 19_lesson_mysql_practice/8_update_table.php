@@ -14,7 +14,7 @@ $db->query("SET NAMES 'utf8'");
 
 $result = $db->query("UPDATE `users` SET 
                                   `logo` = 'image_logo.png',
-                                  `password` = 'top secret password',
+                                  `password` = 'top secret password'
                                   WHERE `gender` = 2"
 );
 

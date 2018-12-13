@@ -14,7 +14,7 @@ $db->query("SET NAMES 'utf8'");
 
 $result = $db->query("LOCK TABLES `users` WRITE");
 
-$result = $db->query("INSERT INTO `customers` VALUES
+$result = $db->query("INSERT INTO `users` VALUES
   (NULL,'test1@i.ua',md5('1'),'Test1','.\\/assets\\/images\\/logos\\/c81e728d9d4c2f636f067f89cc14862c.jpeg','1984-12-01','0'),
   (NULL,'test2@i.ua',md5('2'),'Test2','.\\/assets\\/images\\/logos\\/c81e728d9d4c2f636f067f89cc14862c.jpeg','1984-12-02','2'),
   (NULL,'test3@i.ua',md5('3'),'Test3','.\\/assets\\/images\\/logos\\/c81e728d9d4c2f636f067f89cc14862c.jpeg','1984-12-03','2'),

@@ -11,7 +11,7 @@ $params = [
 
 try {
     $db = new \mysqli($params['host'], $params['user'], $params['password'], $params['database']);
-} catch (PDOException $e) {
+} catch (\Exception $e) {
     echo 'Подключение не удалось: ' . $e->getMessage();
 }
 
@@ -25,9 +25,8 @@ while ($row = $result->fetch_assoc()) {
 
 $db->close();
 
-debug($customers);
 debug([
-    'Customers using "mysqli"' => $users
+    'Customers using "mysqli"' => $customers
 ]);
 
 $dsn = "mysql:dbname={$params['database']};host={$params['host']}";

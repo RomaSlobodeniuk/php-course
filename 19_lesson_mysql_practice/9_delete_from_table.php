@@ -16,5 +16,3 @@ $result = $db->query("DELETE FROM `users` WHERE `gender` = 2 AND `name` = 'Test2
 $result = $db->query("DELETE FROM `users` WHERE `gender` > 1 OR `gender` = 0");
 
 $db->close();
-
-debug($customers);
