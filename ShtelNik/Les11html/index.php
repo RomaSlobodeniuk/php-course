@@ -36,20 +36,14 @@
         <input type="submit" name="submit" required value="Ok">
         </form>
         <br>
-        <h2>
-        <span>
-            Heading2
-        </span>
-        </h2>
+
     </div>
-    <div>
-        <p>
-        <h3>Heading3</h3>
-        </p>
-    </div>
-    <h4>Heading4</h4>
-    <h5>Heading5</h5>
-    <h6>Heading6</h6>
+
+    <h2>Heading2    <small>SmallText=85%</h2>
+    <h3>Heading3   <small>SmallText=85%</h3>
+    <h4>Heading4  <small>SmallText=85%</small></h4>
+    <h5>Heading5  <small>SmallText=85%</small></h5>
+    <h6>Heading6  <small>SmallText=85%</small></h6>
     <img src="image/black-humor.jpg" alt="BlackHumor">
     <img src="image/smile.jpeg" alt="smile">
     <br>
@@ -57,6 +51,13 @@
     <p> Text Article</p>
     <br>
        <span>__Span1__</span>    <span>  Span2  </span>    <span>==Span3==</span>
+    <div>
+        <p>
+            Text <mark>TextMarked</mark>
+
+        </p>
+    </div>
+
     <!--
         <script>
             var article = window.document.getElementById('article-1');
