@@ -10,7 +10,7 @@ abstract class Car
 
     public function __construct()
     {
-        $this->doors = $this->setDoors();
+        $this->doors = $this->setdDoors();
     }
 
     private function setDoors()
