@@ -24,11 +24,11 @@ if (!empty($params)) {
     <form name="form_calc" method="post" action="">
         <div>
             <label for="1st">Input 1st argument</label>
-            <input id="1st" name="arg1" type="text" <?= !empty($params['arg1']) ? "value=\"".$params['arg1']."\"" : "placeholder=\"1st argument\"";?>">
+            <input id="1st" name="arg1" type="text" <?= !empty($params['arg1']) ? "value=\"".$params['arg1']."\"" : "placeholder=\"1st argument\"";?> pattern="^\d+[.]*\d*$" ">
         </div>
         <div>
             <label for="2d">Input 2d argument</label>
-            <input id="2d" name="arg2" type="text"  <?= !empty($params['arg1']) ? "value=\"".$params['arg2']."\"" : "placeholder=\"2d argument\"";?>">
+            <input id="2d" name="arg2" type="text"  <?= !empty($params['arg1']) ? "value=\"".$params['arg2']."\"" : "placeholder=\"2d argument\"";?> pattern="^\d+[.]*\d*$" ">
         </div>
         <div>
             <input type="radio" name="math_action" value="1" <?= (!empty($params['math_action']) && $params['math_action']==1) ? "checked" : "" ?> > <b> + </b>
