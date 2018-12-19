@@ -17,10 +17,10 @@ if (!empty($params)) {
 
 ?>
 
-    <a name="login"></a>
-    <p class="lead">Calculator</p>
+<a name="login"></a>
+<p class="lead">Calculator</p>
 
-    <div>
+<div>
     <form name="form_calc" method="post" action="">
         <div>
             <label for="1st">Input 1st argument</label>
@@ -39,8 +39,8 @@ if (!empty($params)) {
         <button type="submit">Calculate</button>
 <!--        <button type="reset">Reset</button>-->
     </form>
-    </div>
-    <br>
+</div>
+<br>
 
 <?php
 
