@@ -1,19 +1,21 @@
 <?php
 
-abstract class Car
+class Car
 {
-    private $doors;
+    protected $doors;
 
     public $type;
 
     public $color;
 
-    public function __construct()
+    public function __construct($type = false, $color = false, $doors = false)
     {
-        $this->doors = $this->setDoors();
+        $this->doors = !$doors ? 4 : $doors;
+        $this->color = !$color ? 'black' : $color;
+        $this->type = !$type ? 'default' : $type;
     }
 
-    private function setDoors()
+    protected function setDoors()
     {
         if ($this->type === 'coupe') {
             return 2;
@@ -30,28 +32,24 @@ abstract class Car
     }
 }
 
-class Coupe extends Car
-{
-    public $color = 'red';
-    public $type = 'coupe';
+//class Coupe extends Car
+//{
+//
+//}
+//
+//class Limousin extends Car
+//{
+//
+//}
+//
+//class AnotherCar extends Car
+//{
+//
+//}
 
-}
-
-class Limousin extends Car
-{
-    public $color = 'Blue';
-    public $type = 'limousin';
-}
-
-class AnotherCar extends Car
-{
-    public $color = 'Yellow';
-    public $type = 'default';
-}
-
-$coupe = new Coupe();
-$limousin = new Limousin();
-$simpleCar = new AnotherCar();
+$coupe = new Car('coupe', 'red', 2);
+$limousin = new Car('limousin', 'Blue', 6);
+$simpleCar = new Car();
 
 echo 'Coupe has:' . '<br>';
 echo 'color: ' . $coupe->color . '<br>';
