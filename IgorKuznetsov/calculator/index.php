@@ -1,6 +1,6 @@
 <?php
 
-define('URL', 'http://localhost/php-course/IgorKuznetsov/calculator/');
+define('URL', 'http://localhost/php_course/IgorKuznetsov/calculator/');
 
 require 'Bootstrap.php';
 require 'Controller.php';

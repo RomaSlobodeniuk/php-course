@@ -1,11 +1,18 @@
 <?php
 
+namespace controllers;
+
+use Controller;
+
 class Calculator extends Controller {
+
+    public $answer = 0;
 
     function __construct()
     {
         parent::__construct();
     }
+
     public function index(){
 
         $post = $_POST;

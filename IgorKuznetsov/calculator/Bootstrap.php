@@ -1,12 +1,11 @@
 <?php
 
+use controllers\Calculator;
+
 class Bootstrap {
 
     function __construct()
     {
-        $url = $_GET[''];
-        $url = explode('/', $url);
-
         if (empty($url[0])) {
             require 'controllers/Calculator.php';
             $controller = new Calculator;
