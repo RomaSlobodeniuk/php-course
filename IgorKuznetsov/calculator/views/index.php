@@ -4,7 +4,7 @@ if (!$arg === false) {
 }
 ?>
 
-<form action="<?php echo URL?>calculator/index" method="post">
+<form action="<?php echo URL?>?=index.php" method="post">
     <input type="text" name="val1">
     <select name="operation">
         <option value="+">+</option>
