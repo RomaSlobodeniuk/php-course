@@ -10,13 +10,9 @@ class Car
 
     public function __construct($type = false, $color = false, $doors = false)
     {
-<<<<<<< HEAD
-        $this->doors = $this->setdDoors();
-=======
         $this->doors = !$doors ? 4 : $doors;
         $this->color = !$color ? 'black' : $color;
         $this->type = !$type ? 'default' : $type;
->>>>>>> b68d64b56afdaa96db735c2f87cd817e5a724879
     }
 
     protected function setDoors()
