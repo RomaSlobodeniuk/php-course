@@ -13,9 +13,7 @@ echo $header;
 echo $mainContent;
 echo $footer;
 
-/**
-$params = $_POST;
-
+/*$params = $_POST;
 if (!empty($params['email'])) {
     debug($params);
     debug($_FILES);
@@ -48,7 +46,4 @@ $pictures = [
 
 require_once './header.php';
 require_once './main.php';
-require_once './footer.php';
-**/
-
-
+require_once './footer.php';*/

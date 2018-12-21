@@ -1,5 +1,6 @@
 <?php
 
+
 //require_once './func/functions.php';
 
 //$fileName = 'sources/index.json';
@@ -14,6 +15,14 @@ if (!empty($params)) {
 //$mainSlider = getSliderContent($sourceData);
 //
 //echo $mainSlider;
+
+
+//$params = $_GET;
+//
+//if (!empty($params)) {
+//    print_r($params);
+//}
+
 
 $images = [
     [
@@ -33,7 +42,10 @@ $images = [
     ],
     [
         'name' => 'retro pups',
+
         'src' => 'assets/img/00451_retro_pups_thumb_alpha.png',
+
+        'src' => 'img/00451_retro_pups_thumb_alpha.png',
         'description' => 'Some robot 4. Some quick example text to build on the card title and make up the bulk of the card\'s content.'
     ],
     [
