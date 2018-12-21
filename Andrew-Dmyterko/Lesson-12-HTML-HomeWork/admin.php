@@ -147,7 +147,8 @@ END;
 //        $array_text = implode("-------------------------------------------------------------",$pictures);
 //        echo $text_array;
         $str = file_put_contents($file,$text_array);
-        require_once './index.php';
+        header("Location:index.php");
+//        require_once './index.php';
 
     endif;
 
@@ -170,7 +171,8 @@ END;
 //        $array_text = implode("-------------------------------------------------------------",$pictures);
 //        echo $text_array;
         $str = file_put_contents($file,$text_array);
-        require_once './index.php';
+        header("Location:index.php");
+//        require_once './index.php';
     endif;
 
 }
