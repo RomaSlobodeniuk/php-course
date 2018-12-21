@@ -40,7 +40,6 @@ function pass($user_name, $passwd, $basa) {
         if ($user_name===$key['user'] && $passwd===$key['password']) {
 //            echo $key['password'], $key['user'],$kk;
             $good = "$kk";
-
         }
     }
     return $good;
@@ -117,9 +116,6 @@ function pass($user_name, $passwd, $basa) {
                         <p><b>Note:</b> This is a secret data do not pass them on to third persons.</p>
                     </div>
                 </div>
-
-
-    <?php elseif($error==0): $error++;  ?>
                 <div class="alert alert-primary" role="alert">
                     Неправильный логин пароль!!!
                 </div>
