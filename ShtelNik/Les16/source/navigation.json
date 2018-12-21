@@ -1,0 +1,17 @@
+{
+  "logo_title": "My Own Site",
+  "links": {
+    "link_1": {
+      "name": "Home",
+      "href": "index.php"
+    },
+    "link_2": {
+      "name": "Articles",
+      "href": "articles.php"
+    },
+    "link_3": {
+      "name": "Login",
+      "href": "login.php"
+    }
+  }
+}
