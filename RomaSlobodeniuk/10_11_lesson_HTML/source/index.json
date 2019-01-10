@@ -16,21 +16,6 @@
         "alt": "Second slide"
 
       },
-      "link3": {
-        "src": "3.jpg?auto=yes&bg=666&fg=444&text=Third slide",
-        "alt": "Third slide"
-
-      },
-      "link4": {
-        "src": "4.jpeg?auto=yes&bg=666&fg=444&text=Fourth slide",
-        "alt": "Fourth slide"
-
-      },
-      "link5": {
-        "src": "5.jpg?auto=yes&bg=666&fg=444&text=Fifth slide",
-        "alt": "Fifth slide"
-
-      },
       "link6": {
         "src": "6.jpg?auto=yes&bg=666&fg=444&text=Sixth slide",
         "alt": "Sixth slide"
@@ -46,7 +31,22 @@
         "alt": "Eighth slide"
 
       },
-      "link9": {
+
+      "link3": {
+        "src": "3.jpg?auto=yes&bg=666&fg=444&text=Third slide",
+        "alt": "Third slide"
+
+      },
+      "link4": {
+        "src": "4.jpeg?auto=yes&bg=666&fg=444&text=Fourth slide",
+        "alt": "Fourth slide"
+
+      },
+      "link5": {
+        "src": "5.jpg?auto=yes&bg=666&fg=444&text=Fifth slide",
+        "alt": "Fifth slide"
+
+      },      "link9": {
         "src": "9.png?auto=yes&bg=666&fg=444&text=Ninth slide",
         "alt": "Ninth slide"
 

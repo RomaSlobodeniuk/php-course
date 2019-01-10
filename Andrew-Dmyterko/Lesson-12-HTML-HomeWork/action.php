@@ -40,7 +40,6 @@ function pass($user_name, $passwd, $basa) {
         if ($user_name===$key['user'] && $passwd===$key['password']) {
 //            echo $key['password'], $key['user'],$kk;
             $good = "$kk";
-
         }
     }
     return $good;
@@ -99,15 +98,15 @@ function pass($user_name, $passwd, $basa) {
                             </div>
                         </fieldset>
                         <div class="row">
-                            <a class="btn btn-primary active" aria-pressed="true" href="./index.php#login" role="button">Вернуться назад</a>
+                            <a class="btn btn-primary active" aria-pressed="true" href="index.php#login" role="button">Вернуться назад</a>
 
-                            <form name="form1" enctype="multipart/form-data" action="./admin.php" method="post">
+                            <form name="form1" enctype="multipart/form-data" action="admin.php" method="post">
 <!--                        <a class="btn btn-danger" href="./admin.php" role="button">Добавить картинку</a>-->
                                 <input type="hidden" name="add_pic" value="add_pic">
                                 <input type="submit" class="btn btn-danger active" aria-pressed="true" value="Добавить картинку">
                             </form>
 
-                            <form name="form1" enctype="multipart/form-data" action="./admin.php" method="post">
+                            <form name="form1" enctype="multipart/form-data" action="admin.php" method="post">
                                 <input type="hidden" name="change" value="change">
                                 <input type="submit" class="btn btn-primary" value="Изменить данные">
                             </form>
@@ -117,16 +116,13 @@ function pass($user_name, $passwd, $basa) {
                         <p><b>Note:</b> This is a secret data do not pass them on to third persons.</p>
                     </div>
                 </div>
-
-
-    <?php elseif($error==0): $error++;  ?>
                 <div class="alert alert-primary" role="alert">
                     Неправильный логин пароль!!!
                 </div>
     <?php endif; ?>
 
     <?php if ($error): ?>
-                <form class="col-sm-6" id="main-form" name="form" method="post" enctype="multipart/form-data" action="./index.php#login">
+                <form class="col-sm-6" id="main-form" name="form" method="post" enctype="multipart/form-data" action="index.php#login">
                     <button type="submit" class="btn btn-primary">Вернуться назад</button>
                 </form>
     <?php endif; ?>

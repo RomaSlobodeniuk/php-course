@@ -85,6 +85,3 @@ require_once './pars_file_weapon_to_array.php';
 require_once './header.php';
 require_once './main.php';
 require_once './footer.php';
-
-
-?>

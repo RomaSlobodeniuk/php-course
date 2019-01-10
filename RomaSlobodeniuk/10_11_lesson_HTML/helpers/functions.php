@@ -1,9 +1,84 @@
 <?php
 
+session_start();
+require_once '../config/config.php';
+checkSession();
+
 function debug($array) {
     echo '<pre>';
     print_r($array);
     echo '</pre>';
+}
+
+function getParams() {
+    if (empty($_REQUEST)) {
+        return false;
+    }
+
+    return $_REQUEST;
+}
+
+function login() {
+    $params = getParams();
+    if ($params) {
+        if ($params['pass_1'] === $params['pass_2']) {
+            $_SESSION['email'] = $params['email'];
+            $_SESSION['time'] = time();
+            setcookie("test_cookie", time());
+            setcookie("test_cookie", time(), time() + 60);
+            setcookie(
+                "test_cookie",
+                time(),
+                time() + 60,
+                '/opt/lampp/htdocs/php_course/RomaSlobodeniuk/10_11_lesson_HTML/',
+                "localhost",
+                1
+            );
+            $_SESSION['messages'] = [
+                [
+                    'type' => 'success',
+                    'message' => 'You have logged in successfully! Your email: "' . $params['email'] . '"'
+                ]
+            ];
+            header('Location: ' . ROOT_PATH);
+            die();
+        }
+
+        $_SESSION['messages'] = [
+            [
+                'type' => 'danger',
+                'message' => 'Sorry, your passwords did not match! Please enter passwords and try again.'
+            ]
+        ];
+    }
+}
+
+function checkSession() {
+    if (empty($_SESSION['email'])) {
+        return;
+    }
+
+    $allowedSessionTime = 60;
+    $currentTimestamp = time();
+    $timeToLogout = $allowedSessionTime - ($currentTimestamp - $_SESSION['time']);
+    $_SESSION['messages'] = [
+        [
+            'type' => 'info',
+            'message' => 'You have "' . $timeToLogout . '" seconds to logout!'
+        ]
+    ];
+
+    if ($currentTimestamp - $_SESSION['time'] > $allowedSessionTime) {
+        unlogin();
+    }
+}
+
+function unLogin() {
+    unset($_SESSION['email']);
+    unset($_SESSION['time']);
+    unset($_COOKIE['test_cookie']);
+    header('Location: ' . ROOT_PATH);
+    die();
 }
 
 function getSourceData($fileName) {
@@ -23,7 +98,28 @@ function getHeader($data) {
     $header = str_replace('{{title}}', $data['title'], $header);
     $navigation = getNavigation();
     $header = str_replace('{{navigation}}', $navigation, $header);
+    $messages = getMessages();
+    $header = str_replace('{{messages}}', $messages, $header);
     return $header;
+}
+
+function getMessages() {
+    if (empty($_SESSION['messages'])) {
+        return '';
+    }
+
+    $fileName = './templates/header/messages.html';
+    $messageTemplate = getSourceContent($fileName);
+    $messagesHtml = '';
+    foreach ($_SESSION['messages'] as $message) {
+        $tmpTemplate = $messageTemplate;
+        $tmpTemplate = str_replace('{{type}}', $message['type'], $tmpTemplate);
+        $tmpTemplate = str_replace('{{message}}', $message['message'], $tmpTemplate);
+        $messagesHtml .= $tmpTemplate;
+    }
+
+    unset($_SESSION['messages']);
+    return $messagesHtml;
 }
 
 function getNavigation() {
@@ -36,12 +132,22 @@ function getNavigation() {
     $navigationTemplateName = './templates/header/navigation.html';
     $navigationTemplate = getSourceContent($navigationTemplateName);
     $navigationTemplate = str_replace('{{logo_title}}', $navigationData['logo_title'], $navigationTemplate);
-
+    $userEmail = !empty($_SESSION['email']) ? $_SESSION['email'] : '';
+    $navigationTemplate = str_replace('{{user_email}}', $userEmail, $navigationTemplate);
     $linksFileName = './templates/header/links.html';
     $linksTemplateHtml = getSourceContent($linksFileName);
     $linksHtml = '';
     $links = $navigationData['links'];
-    foreach ($links as $link) {
+    $isLoggedIn = empty($_SESSION['email']) ? false : true;
+    foreach ($links as $key => $link) {
+        if ($isLoggedIn && $key === 'link_3') {
+            continue;
+        }
+
+        if (!$isLoggedIn && $key === 'link_4') {
+            continue;
+        }
+
         $linksTemplate = $linksTemplateHtml;
         $linksTemplate = str_replace('{{name}}', $link['name'], $linksTemplate);
         $linksTemplate = str_replace('{{href}}', $link['href'], $linksTemplate);

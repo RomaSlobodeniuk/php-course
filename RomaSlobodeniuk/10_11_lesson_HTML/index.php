@@ -3,7 +3,14 @@
 require_once './helpers/functions.php';
 require_once './config/config.php';
 
-$fileName = './source/index.json';
+$params = $_POST;
+if (!empty($params['email'])) {
+    debug($params);
+    debug($_FILES);
+    die();
+}
+
+$fileName = './source/home.json';
 $sourceData = getSourceData($fileName);
 
 $header = getHeader($sourceData);

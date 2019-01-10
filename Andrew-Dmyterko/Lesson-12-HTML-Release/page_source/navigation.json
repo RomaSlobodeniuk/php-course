@@ -1,0 +1,25 @@
+{
+  "logo_title": "World War II Weapons",
+  "links": {
+    "link_1": {
+      "name": "Home",
+      "href": "index.php"
+    },
+    "link_2": {
+      "name": "MyPhoto",
+      "href": "photo.php"
+    },
+    "link_3": {
+      "name": "Login",
+      "href": "login.php"
+    },
+    "link_4": {
+      "name": "Logout {{user_email}}",
+      "href": "logout.php"
+    },
+    "link_5": {
+      "name": "Админка",
+      "href": "action.php"
+    }
+  }
+}

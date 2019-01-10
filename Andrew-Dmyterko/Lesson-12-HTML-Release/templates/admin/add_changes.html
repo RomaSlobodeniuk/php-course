@@ -1,0 +1,24 @@
+<!--Фома добавления изменения атребутов -->
+<br>
+<br>
+<br>
+<div class="jumbotron">
+    <h3 class="display-6"><u>Измените необходимые атрибуты</u></h3>
+    <hr class="my-8">
+    <p><b>Note:</b> Подтвердите выбор нажатием кнопки <u>"Изменить данные"</u></p>
+    ​
+    <picture>
+        <!--            <source srcset="..." type="image/svg+xml">-->
+        <img src="{{src}}" class="img-fluid img-thumbnail"
+             alt="...">
+    </picture>
+
+    <form name="form3" method="post" class="col-sm-6" enctype="multipart/form-data" action="">
+        <input type="text" name="name" class="form-control" required value="{{name}}">
+        <textarea name="text1" required class="form-control"
+                  placeholder="Описание оружия">{{text}}</textarea>
+        <input type="text" name="url" class="form-control" size="100" required value="{{url}}">
+        <input type="hidden" name="number_pic" value="{{number_pic}}">
+        <button type="submit" class="btn btn-primary">Изменить данные</button>
+    </form>
+</div>

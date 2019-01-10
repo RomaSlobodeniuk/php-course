@@ -1,0 +1,30 @@
+{
+  "title": "Home Page",
+  "greetings": "Hello travel addicts!",
+  "description": "This is the Home Page Description",
+  "additional": "just for pleasure....",
+  "link": "https://google.com.ua",
+  "link_name": "Find out about these awesome places",
+  "page_content": {
+    "slider": {
+      "link1": {
+        "src": "5.jpg?auto=yes&bg=666&fg=444&text=First slide",
+        "alt": "First slide",
+        "text":"Welcome to Iceland"
+      },
+      "link2": {
+        "src": "7.jpg?auto=yes&bg=666&fg=444&text=Second slide",
+        "alt": "Second slide",
+        "text": "Welcome to Caribbeans"
+      },
+      "link3": {
+        "src": "6.jpg?auto=yes&bg=666&fg=444&text=Third slide",
+        "alt": "Third slide",
+        "text": "Welcome to Greece"
+      }
+    },
+    "footer": {
+      "heading": "Home Page Footer Heading"
+    }
+  }
+}

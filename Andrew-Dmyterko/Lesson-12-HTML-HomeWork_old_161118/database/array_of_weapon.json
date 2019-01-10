@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Parabellum",
+        "src": "weapon_img\/weapon4.jpeg",
+        "text": "Text 4 goes here",
+        "url": "https:\/\/ru.wikipedia.org\/wiki\/%D0%9F%D0%B8%D1%81%D1%82%D0%BE%D0%BB%D0%B5%D1%82_%D0%9B%D1%8E%D0%B3%D0%B5%D1%80%D0%B0"
+    },
+    {
+        "name": "Sturmgewehr 44",
+        "src": "weapon_img\/weapon9.jpeg",
+        "text": "Text 9 goes here",
+        "url": "https:\/\/ru.wikipedia.org\/wiki\/StG_44"
+    },
+    {
+        "name": "Walther P38",
+        "src": "weapon_img\/weapon11.jpeg",
+        "text": "Text 11 goes here",
+        "url": "https:\/\/ru.wikipedia.org\/wiki\/Walther_P38"
+    },
+    {
+        "name": "Mauser Gewehr 98",
+        "src": "weapon_img\/weapon12.jpeg",
+        "text": "Text 12 goes here",
+        "url": "https:\/\/ru.wikipedia.org\/wiki\/Mauser_98"
+    },
+    {
+        "name": "ddddd",
+        "src": "weapon_img\/index.jpeg",
+        "text": "ffff",
+        "url": "ggggggg"
+    },
+    {
+        "name": "\u0442\u0430\u043d\u043a",
+        "src": "weapon_img\/images.jpeg",
+        "text": "\u0442\u0430\u043d\u043a",
+        "url": "\u0442\u0430\u043d\u043a"
+    }
+]
