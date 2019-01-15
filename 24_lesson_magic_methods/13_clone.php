@@ -7,7 +7,7 @@ class MyCloneable
     public $object = 1;
 
     public function __clone() {
-        ++$this->object;
+        $this->object++;
     }
 }
 

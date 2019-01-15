@@ -1,5 +1,7 @@
 <?php
 
+require_once '../helpers/functions.php';
+
 class SetStateTest
 {
     public $var1;
