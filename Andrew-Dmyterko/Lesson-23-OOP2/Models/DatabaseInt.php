@@ -10,9 +10,9 @@
 
 namespace Models;
 
-use Api\DatabaseInterface;
+use Api\DatabaseInterfaceMy;
 
-class  DatabaseInt implements DatabaseInterface
+class  DatabaseInt implements DatabaseInterfaceMy
 
 {
     protected const PARAMS = [
@@ -109,15 +109,7 @@ class  DatabaseInt implements DatabaseInterface
                 $param_for_where = 'where '.$param_for_where;
             }
 
-            // Получаем названия колонок
-            $columName = "SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE()   AND TABLE_NAME = '$table' ORDER BY ORDINAL_POSITION;";
-            $colum = $db->query($columName);
-            $columName=[];
-            while ($raw = $colum->fetch_row()){
-                $columName[] = $raw;
-            }
             echo "<pre>";
-//            var_dump($columName);
 
             // формируем запрос
             $sql = "select $filds_for_select from $table $param_for_where";
@@ -127,61 +119,50 @@ class  DatabaseInt implements DatabaseInterface
                 $result = $db->query($sql);
 //                var_dump($result);
 
+                /* Читаем служебную информацию по всем столбцам */
+                        $finfo = $result->fetch_fields();
+                        $finfoArray = [];
+
+//                        Преобразуем обект в массив
+                        foreach ($finfo as $val) {
+                          $finfoArray[$val->name] =  (array) $val;
+                        }
+//                        $result->free();
+
                 // проверяем выводить объектом или массивом или горизонтально
                 if ($array) {
                     $temp = [];
 
-                    while ($row = $result->fetch_row()) {
+                    while ($row = $result->fetch_assoc()) {
                         $temp[] = $row;
                     }
                     $result=$temp;
 
                     if ($array === 3) {
-                        $maxArray=[];
 
-//                        Заполняем массив $maxArray значениями по умолчанию
-                        foreach ($columName as $idCol => $value) {
-                            foreach ($value as $idCol1 => $col) {
-                                $maxArray[] = strlen($col);
-                            }
-                        }
+                        // Формируем шапку для вывода метдом 2 через fetch_filds
+                        $string1 =  "<br> | "; // строка разделителя
+                        $string2 =  "<br> +"; // строка шапки
+                        foreach ($finfoArray as $idCol => $value) {
 
-                        // Создаем массив длин элементов для корректного вывода в столбик
-//                        $maxArray=[];
-                        foreach ($result as $value) {
-                            foreach ($value as $id => $item) {
-                                if (!isset($maxArray[$id])) {$maxArray[] = 0;}
-                                if ($maxArray[$id] < strlen($item)) {
-                                    $maxArray[$id] = strlen($item);
-                                }
-                            }
-                        }
-//                        var_dump($maxArray);
-
-                        // Формируем шапку для вывода
-                        $string1 =  "<br> | ";
-                        $string2 =  "<br> +";
-                        foreach ($columName as $idCol => $value) {
-                            foreach ($value as $idCol1 => $col) {
-                                $string1 = $string1 . str_pad($col, $maxArray[$idCol], " ", STR_PAD_BOTH) . " | ";
-                                $string2 = $string2 . str_pad("-", $maxArray[$idCol]+2, "-", STR_PAD_BOTH) . "+";
-                            }
+                            $string1 = $string1 . str_pad($idCol, $value['max_length'] < strlen($idCol) ? strlen($idCol): $value['max_length'], " ", STR_PAD_BOTH) . " | ";
+                            $string2 = $string2 . str_pad("-", $value['max_length'] < strlen($idCol) ? strlen($value['name'])+2 : $value['max_length']+2, "-", STR_PAD_BOTH) . "+";
                         }
                         echo $string2;
                         echo $string1;
                         echo $string2;
-//                        str_pad($col, $maxArray[$idCol], " ", STR_PAD_BOTH);
 
-                        // Делаем вывод в столбик и дополняем пробелами для корректного вывода
+                         // Делаем вывод в столбик и дополняем пробелами для корректного вывода
                         foreach ($result as $value) {
 
-                            $string = "<br> | ";
+                            $string = "<br> | "; // строка разделитея
                             foreach ($value as $id => $item) {
-                                $string = $string.str_pad($item, $maxArray[$id], " ", STR_PAD_LEFT)." | ";
+                                $string = $string.str_pad($item, $finfoArray[$id]['max_length'] < strlen($id) ? strlen($id): $finfoArray[$id]['max_length'], " ", STR_PAD_LEFT)." | ";
                             }
                             echo $string;
                         }
                         echo $string2;
+
                         $result=true;
                     }
                 }
@@ -219,6 +200,7 @@ class  DatabaseInt implements DatabaseInterface
             if(!empty(trim($param_for_where," \t\n\r\0\x0B,"))) {
                 $param_for_where = 'where '.$param_for_where;
             }
+
             // формируем условие SET
             if(!empty(trim($param_for_set," \t\n\r\0\x0B,"))) {
                 $param_for_set = 'set '.$param_for_set;
@@ -230,18 +212,16 @@ class  DatabaseInt implements DatabaseInterface
 
             try {
                 $result = $db->query($sql);
-                var_dump($result);
+//                var_dump($result);
             } catch (\Exception $e) {
                 $result = false;
                 $error = '!!! Ошибка при select: ' . $e->getMessage();
                 var_dump($error);
             }
-
             $close = DatabaseInt::closeConnection($db);
             return $result;
         }
         else {
-
             return $db;
         }
     }

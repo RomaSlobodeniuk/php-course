@@ -62,7 +62,6 @@ if ($result) {
 } else var_dump($error);
 
 
-
 $filds_for_select = "";
 $param_for_where_select = "code=6667 and date=\"1775-03-03\" and sum=666.66";
 $array = 3;
@@ -82,7 +81,6 @@ if ($result) {
 } else var_dump($error);
 
 
-
 $filds_for_select = "";
 $param_for_where_select = "code=6667 and date=\"1775-03-03\" and sum=666.66";
 $array = 3;
@@ -105,10 +103,34 @@ if ($result) {
 
 
 
-$filds_for_select = "";
+//$filds_for_select = "";
+$filds_for_select = "login,id";
 $param_for_where_select = "";
 $array = 3;
 $result = DatabaseInt::select("customers", $filds_for_select, $param_for_where_select, $array, $error);
+if ($result) {
+    echo "<br>ok<br>";
+    if ($array!==3) {echo "<pre>";var_dump($result);echo "</pre>";}
+} else var_dump($error);
+
+
+
+$filds_for_select = "";
+//$filds_for_select = "lofin, description, password, a.id, sum";
+$param_for_where_select = "a.id = b.id";
+$array = 3;
+$result = DatabaseInt::select("customers a, buy b", $filds_for_select, $param_for_where_select, $array, $error);
+if ($result) {
+    echo "<br>ok<br>";
+    if ($array!==3) {echo "<pre>";var_dump($result);echo "</pre>";}
+} else var_dump($error);
+
+
+//$filds_for_select = "";
+$filds_for_select = "code, login, description, password, a.id, sum";
+$param_for_where_select = "a.id = b.id and a.id=1";
+$array = 3;
+$result = DatabaseInt::select("customers a, buy b", $filds_for_select, $param_for_where_select, $array, $error);
 if ($result) {
     echo "<br>ok<br>";
     if ($array!==3) {echo "<pre>";var_dump($result);echo "</pre>";}

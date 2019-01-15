@@ -5,7 +5,7 @@
 
 namespace Api;
 
-interface DatabaseInterface
+interface DatabaseInterfaceMy
 {
 //    Создаем подключение к БД агрументы подключения указаны в коде static функци getConnection()
 //    если при выполнении ошибка то вернет false текст ошибки вернет в $error
