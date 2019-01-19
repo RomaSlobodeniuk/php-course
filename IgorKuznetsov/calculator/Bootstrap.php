@@ -4,6 +4,7 @@ class Bootstrap {
 
     function __construct()
     {
+
 //        $url = $_GET['url'];
 //        $url = explode('/', $url);
 

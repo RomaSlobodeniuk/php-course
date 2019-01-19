@@ -1,0 +1,26 @@
+<br>
+<br>
+<br>
+<div class="jumbotron">
+    <a name="login"></a>
+    <p class="lead"><em>Please enter your login and password to enter the secret area</em></p>
+    <div class="row justify-left-left">
+        <form class="col-sm-6" id="main-form" name="form" method="post" enctype="multipart/form-data" action="./action.php">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="passwd" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword2">Confirm Password</label>
+                <input name="passwd_confirm" type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Your Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="https://www.facebook.com/v3.2/dialog/oauth?client_id={{ID}}&redirect_uri={{URL}}&response_type=code&scope=public_profile,email,user_location">Войти через FB</a>
+        </form>
+    </div>
+</div>

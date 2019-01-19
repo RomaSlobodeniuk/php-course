@@ -134,7 +134,6 @@ function getNavigation() {
     $navigationTemplate = str_replace('{{logo_title}}', $navigationData['logo_title'], $navigationTemplate);
     $userEmail = !empty($_SESSION['email']) ? $_SESSION['email'] : '';
     $navigationTemplate = str_replace('{{user_email}}', $userEmail, $navigationTemplate);
-
     $linksFileName = './templates/header/links.html';
     $linksTemplateHtml = getSourceContent($linksFileName);
     $linksHtml = '';

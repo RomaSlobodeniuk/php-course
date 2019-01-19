@@ -8,6 +8,7 @@ class Calculator extends Controller {
     {
         parent::__construct();
     }
+
     public function index(){
 
         $post = $_POST;
