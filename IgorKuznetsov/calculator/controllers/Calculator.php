@@ -2,6 +2,8 @@
 
 class Calculator extends Controller {
 
+    public $answer = 0;
+
     function __construct()
     {
         parent::__construct();

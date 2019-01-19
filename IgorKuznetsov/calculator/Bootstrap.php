@@ -4,8 +4,8 @@ class Bootstrap {
 
     function __construct()
     {
-        $url = $_GET['url'];
-        $url = explode('/', $url);
+//        $url = $_GET['url'];
+//        $url = explode('/', $url);
 
         if (empty($url[0])) {
             require 'controllers/Calculator.php';

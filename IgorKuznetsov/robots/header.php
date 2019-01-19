@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<<<<<<< HEAD
     <title>Test</title>
-=======
     <title>Robots are our future</title>
->>>>>>> ba224b0d1b9fe956e259e59fb4e6c144516bc4a0
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/script.js"></script>
