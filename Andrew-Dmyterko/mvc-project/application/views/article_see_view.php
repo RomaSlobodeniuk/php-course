@@ -1,0 +1,23 @@
+<?php
+// Формируем главную страницу
+
+foreach($data as $row)
+{ ?>
+<!--    col-md-offset-3 <div class="jumbotron col-lg-10" style="margin-right: auto; margin-left: auto;"> -->
+<!--    <div class="jumbotron jumbotron-fluid">-->
+    <div class="jumbotron col-xs-110 col-sm-10 col-md-10 col-lg-10" style="margin-right: auto; margin-left: auto;">
+<!--        <div class="container">-->
+            <h1 class="display-6"><u><?= $row['title'] ?></u></h1>
+
+            <hr class="my-8">
+            <p class="lead"><em><?= $row['full_text'] ?></em></p>
+            <a class="btn btn-primary btn-lg" href="http://<?=SITE_NAME?>" target="_self" role="button" >Вернуться на главную</a>
+            <a class="btn btn-primary btn-lg" href="http://<?=SITE_NAME?>/Article/edit/<?= $row['id'] ?>" target="_self" role="button" >Изменить статью</a>
+            <hr class="my-8">
+            <p>Дата создания - <?= $row['date_create'] ?></p>
+<!--        </div>-->
+    </div>
+    <?php
+}
+
+?>

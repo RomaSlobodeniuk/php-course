@@ -12,8 +12,8 @@ function error_error_handler($severity, $message, $file, $line) {
 }
 
 function exception_error_handler(Exception $exception) {
-    echo $exception;
-//    echo "Неперехвачене виключення: " , $exception->getMessage(), "<br>";
+//    echo $exception;
+    echo "Неперехвачене виключення: " , $exception->getMessage(), "<br>";
 }
 
 set_error_handler("error_error_handler");

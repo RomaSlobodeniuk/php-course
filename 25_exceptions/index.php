@@ -16,7 +16,7 @@ try {
     $i = 0;
     $y = 13;
     if (!$i) {
-//        throw new DivisionByZeroException('$i = ' . $i);
+        throw new DivisionByZeroException('$i = ' . $i);
     }
 
     echo 'result = ' .  ($y/$i);
